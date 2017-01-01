@@ -1,0 +1,17 @@
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.idea/
+gradlew.bat
+gradlew
+gradle/
+gradle.properties
+app/proguard-rules.pro
+app/src/test/java/com/kusu/constructor/ExampleUnitTest.java
+app/build/
