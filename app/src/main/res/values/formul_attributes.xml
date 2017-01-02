@@ -1,0 +1,18 @@
+<resources>
+    <declare-styleable name="fs">
+        <!--scale-->
+        <attr name="min_scale" format="float"/>
+        <attr name="max_scale" format="float"/>
+        <attr name="autoscale" format="boolean"/>
+
+        <!--size values-->
+        <attr name="percent" format="float"/>
+        <attr name="height" format="dimension"/>
+        <attr name="percent_height" format="boolean"/>
+        <attr name="padding" format="dimension"/>
+        <attr name="text_size" format="dimension"/>
+
+        <!--colors-->
+        <attr name="background_color" format="color"/>
+    </declare-styleable>
+</resources>

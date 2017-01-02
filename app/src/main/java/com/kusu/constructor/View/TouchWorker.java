@@ -1,6 +1,7 @@
-package com.kusu.constructor.Utils;
+package com.kusu.constructor.View;
 
 import android.graphics.Canvas;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 
 import com.kusu.constructor.Formul;
@@ -12,7 +13,7 @@ import java.util.Map;
  * Created by KuSu on 31.12.2016.
  */
 
-public class TouchWorker {
+public class TouchWorker extends GestureDetector.SimpleOnGestureListener{
     int targetX, targetY;
     Movable movable;
     Formul formul;

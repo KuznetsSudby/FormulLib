@@ -20,12 +20,12 @@ public class Changeable extends Leaf {
 
     @Override
     public int getHeight() {
-        return scale.getValue(Constants.block);
+        return settings.getValue(Constants.block);
     }
 
     @Override
     public int getWidth() {
-        return scale.getValue(Constants.wBlock);
+        return settings.getValue(Constants.wBlock);
     }
 
     @Override

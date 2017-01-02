@@ -1,17 +1,18 @@
 package com.kusu.constructor;
 
 import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
+import android.view.View;
 
-import com.kusu.constructor.LeafType.Changeable;
 import com.kusu.constructor.LeafType.Movable;
-import com.kusu.constructor.Utils.MovePart;
+import com.kusu.constructor.View.MovePart;
 import com.kusu.constructor.Prototype.Leaf;
-import com.kusu.constructor.Utils.TouchWorker;
+import com.kusu.constructor.View.TouchWorker;
 import com.kusu.constructor.View.DrawThread;
+import com.kusu.constructor.View.Settings;
 
 import java.util.HashMap;
 
@@ -19,21 +20,32 @@ import java.util.HashMap;
  * Created by KuSu on 08.11.2016.
  */
 
-public class Formul extends SurfaceView implements SurfaceHolder.Callback {
+public class Formul extends View {
 
     private DrawThread drawThread;
-    Leaf root = new Changeable("^");
-    MovePart part = new MovePart(new HashMap<Integer, Movable>());
-    TouchWorker worker = new TouchWorker(this);
+    private MovePart part = new MovePart(new HashMap<Integer, Movable>());
+    private TouchWorker worker = new TouchWorker(this);
+    private Settings settings;
+
+    private void init(Context context, AttributeSet attrs) {
+        if (attrs == null)
+            settings = new Settings(null);
+        else {
+            TypedArray pianoAttrs = context.obtainStyledAttributes(attrs, R.styleable.fs);
+            settings = new Settings(pianoAttrs);
+        }
+        drawThread = new DrawThread(this);
+        drawThread.updateRootReferences();
+    }
 
     public Formul(Context context) {
         super(context);
-        getHolder().addCallback(this);
+        init(context, null);
     }
 
     public Formul(Context context, AttributeSet attrs) {
         super(context, attrs);
-        getHolder().addCallback(this);
+        init(context, attrs);
     }
 
     public Formul setBlocks(HashMap<Integer, Movable> blocks) {
@@ -42,28 +54,9 @@ public class Formul extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     @Override
-    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-    }
-
-    @Override
-    public void surfaceCreated(SurfaceHolder holder) {
-        drawThread = new DrawThread(getHolder(), this);
-        drawThread.setRunning(true);
-        drawThread.start();
-        updateRootReferences();
-    }
-
-    @Override
-    public void surfaceDestroyed(SurfaceHolder holder) {
-        boolean retry = true;
-        drawThread.setRunning(false);
-        while (retry) {
-            try {
-                drawThread.join();
-                retry = false;
-            } catch (InterruptedException e) {
-            }
-        }
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        drawThread.onDraw(canvas);
     }
 
     @Override
@@ -72,12 +65,12 @@ public class Formul extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     public Leaf getRoot() {
-        return root;
+        return drawThread.getRoot();
     }
 
     public Formul setRoot(Leaf root) {
-        this.root = root;
-        updateRootReferences();
+        drawThread.setRoot(root);
+        drawThread.updateRootReferences();
         return this;
     }
 
@@ -89,10 +82,7 @@ public class Formul extends SurfaceView implements SurfaceHolder.Callback {
         return worker;
     }
 
-    public void updateRootReferences() {
-        if (drawThread != null) {
-            root.setTreeScale(drawThread.getScale());
-            root.setTreeColors(drawThread.getColors());
-        }
+    public Settings getSettings() {
+        return settings;
     }
 }

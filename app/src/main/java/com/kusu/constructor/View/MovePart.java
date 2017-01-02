@@ -1,4 +1,4 @@
-package com.kusu.constructor.Utils;
+package com.kusu.constructor.View;
 
 import com.kusu.constructor.LeafType.Movable;
 

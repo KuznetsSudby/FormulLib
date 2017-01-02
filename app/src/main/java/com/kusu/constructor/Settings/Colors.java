@@ -1,8 +1,11 @@
-package com.kusu.constructor.View;
+package com.kusu.constructor.Settings;
 
+import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.util.AttributeSet;
 
 import com.kusu.constructor.Formul;
+import com.kusu.constructor.R;
 
 import static com.kusu.constructor.Prototype.PaintableBlock.SYMBOL_CHANGABLE;
 import static com.kusu.constructor.Prototype.PaintableBlock.SYMBOL_DIVISION;
@@ -19,11 +22,13 @@ public class Colors {
     private static int defBackground = Color.WHITE;
     private int background = defBackground;
 
-    public Colors(Formul formul) {
-
+    public Colors(TypedArray attrs) {
+        if (attrs == null)
+            return;
+        background = attrs.getColor(R.styleable.fs_background_color, defBackground);
     }
 
-    public static int getColor(int type) {
+    public int getColor(int type) {
         switch (type) {
             default:
             case SYMBOL_CHANGABLE:
@@ -38,7 +43,7 @@ public class Colors {
         }
     }
 
-    public static int getColorText(int type) {
+    public int getColorText(int type) {
         switch (type) {
             default:
             case SYMBOL_CHANGABLE:

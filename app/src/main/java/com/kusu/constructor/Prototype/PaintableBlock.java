@@ -5,9 +5,10 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 
-import com.kusu.constructor.View.Colors;
+import com.kusu.constructor.Settings.Colors;
 import com.kusu.constructor.LeafType.Movable;
-import com.kusu.constructor.View.Scale;
+import com.kusu.constructor.Settings.Scale;
+import com.kusu.constructor.View.Settings;
 
 /**
  * Created by KuSu on 09.11.2016.
@@ -24,15 +25,10 @@ public abstract class PaintableBlock implements Drawable {
     public Rect rect;
     public static Paint paint;
 
-    public Colors colors;
-    public Scale scale;
+    public Settings settings;
 
-    public void setScale(Scale scale) {
-        this.scale = scale;
-    }
-
-    public void setColors(Colors colors) {
-        this.colors = colors;
+    public void setSettings(Settings settings) {
+        this.settings = settings;
     }
 
     public void draw(Canvas canvas, int deltaX, int startY) {
@@ -49,7 +45,7 @@ public abstract class PaintableBlock implements Drawable {
 
     protected abstract int getType();
 
-    public Paint getPaint(String symbols, Movable block) {
+    protected Paint getPaint(String symbols, Movable block) {
         //todo позволить перееопределить метод, а точнее написать метод, который будет говорить, валидное ли значение, если changable
         if (paint == null)
             paint = new Paint();
@@ -78,18 +74,16 @@ public abstract class PaintableBlock implements Drawable {
     public Paint getPaintText() {
         if (paint == null)
             paint = new Paint();
-        paint.setColor(Colors.getColorText(getType()));
+        paint.setColor(settings.getColorText(getType()));
         paint.setStyle(Paint.Style.FILL);
-
-        //// TODO: 31.12.2016 text size
-        paint.setTextSize(40);
+        paint.setTextSize(settings.getTextSize());
         return paint;
     }
 
     public Paint getPaint() {
         if (paint == null)
             paint = new Paint();
-        paint.setColor(Colors.getColor(getType()));
+        paint.setColor(settings.getColor(getType()));
         paint.setStyle(Paint.Style.FILL);
         return paint;
     }

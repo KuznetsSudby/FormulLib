@@ -80,6 +80,6 @@ public class Power extends Leaf {
     }
 
     public int getPowerStep(){
-        return scale.getValue(Constants.block / 2);
+        return settings.getValue(Constants.block / 2);
     }
 }

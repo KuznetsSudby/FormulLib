@@ -1,12 +1,13 @@
 package com.kusu.constructor.Prototype;
 
-import com.kusu.constructor.View.Colors;
+import com.kusu.constructor.Settings.Colors;
 import com.kusu.constructor.LeafType.Movable;
 import com.kusu.constructor.LeafType.Changeable;
 import com.kusu.constructor.LeafType.Division;
 import com.kusu.constructor.LeafType.Nextable;
 import com.kusu.constructor.LeafType.Power;
-import com.kusu.constructor.View.Scale;
+import com.kusu.constructor.Settings.Scale;
+import com.kusu.constructor.View.Settings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,17 +62,10 @@ public abstract class Leaf extends PaintableBlock {
     public abstract int getCenterDelta(int center);
     public abstract int[] getTopBottom(int[] size);
 
-    public void setTreeScale(Scale scale) {
-        setScale(scale);
+    public void setTreeSettings(Settings settings) {
+        setSettings(settings);
         for(Leaf leaf : list)
             if (leaf != null)
-                leaf.setTreeScale(scale);
-    }
-
-    public void setTreeColors(Colors colors) {
-        setColors(colors);
-        for(Leaf leaf : list)
-            if (leaf != null)
-                leaf.setTreeColors(colors);
+                leaf.setTreeSettings(settings);
     }
 }

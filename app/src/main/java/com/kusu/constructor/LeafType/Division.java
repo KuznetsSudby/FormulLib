@@ -6,7 +6,8 @@ import android.graphics.Rect;
 import com.kusu.constructor.Utils.Constants;
 import com.kusu.constructor.Prototype.Leaf;
 import com.kusu.constructor.Prototype.PaintableBlock;
-import com.kusu.constructor.View.Scale;
+import com.kusu.constructor.Settings.Scale;
+import com.kusu.constructor.View.Settings;
 
 public class Division extends Leaf {
 
@@ -21,7 +22,7 @@ public class Division extends Leaf {
 
     @Override
     public int getHeight() {
-        return DivisionLine.getHeight(scale) + list.get(0).getHeightToEnd() + list.get(1).getHeightToEnd();
+        return DivisionLine.getHeight(settings) + list.get(0).getHeightToEnd() + list.get(1).getHeightToEnd();
     }
 
     @Override
@@ -47,8 +48,8 @@ public class Division extends Leaf {
 
     @Override
     public int[] getTopBottom(int[] size) {
-        size[1] = Math.min(size[1], size[0] - DivisionLine.getHeight(scale) / 2 - list.get(0).getHeightToEnd());
-        size[2] = Math.max(size[2], size[0] + DivisionLine.getHeight(scale) / 2 + list.get(1).getHeightToEnd());
+        size[1] = Math.min(size[1], size[0] - DivisionLine.getHeight(settings) / 2 - list.get(0).getHeightToEnd());
+        size[2] = Math.max(size[2], size[0] + DivisionLine.getHeight(settings) / 2 + list.get(1).getHeightToEnd());
         if (list.size() > 2) {
             size = list.get(2).getTopBottom(size);
         }
@@ -68,8 +69,14 @@ public class Division extends Leaf {
         if (list.size() > 2) {
             list.get(2).draw(canvas, deltaX + getWidth(), startY);
         }
-        list.get(0).draw(canvas, deltaX + (getWidth() - list.get(0).getWidthToEnd()) / 2, startY - list.get(0).getCenterDelta(0) - DivisionLine.getHeight(scale) / 2 - list.get(0).getHeightToEnd() / 2);
-        list.get(1).draw(canvas, deltaX + (getWidth() - list.get(1).getWidthToEnd()) / 2, startY - list.get(1).getCenterDelta(0) + DivisionLine.getHeight(scale) / 2 + list.get(1).getHeightToEnd() / 2);
+        list.get(0).draw(
+                canvas,
+                deltaX + (getWidth() - list.get(0).getWidthToEnd()) / 2,
+                startY - list.get(0).getCenterDelta(0) - DivisionLine.getHeight(settings) / 2 - list.get(0).getHeightToEnd() / 2);
+        list.get(1).draw(
+                canvas,
+                deltaX + (getWidth() - list.get(1).getWidthToEnd()) / 2,
+                startY - list.get(1).getCenterDelta(0) + DivisionLine.getHeight(settings) / 2 + list.get(1).getHeightToEnd() / 2);
     }
 
     @Override
@@ -82,12 +89,16 @@ public class Division extends Leaf {
     }
 
     public static class DivisionLine {
-        public static int getHeight(Scale scale) {
-            return scale.getValue(Constants.blockDel);
+        public static int getHeight(Settings settings) {
+            return settings.getValue(Constants.blockDel);
         }
 
         public static void drawLine(Canvas canvas, int startX, int centerY, int endX, PaintableBlock paintable) {
-            paintable.rect = new Rect(startX, centerY - getHeight(paintable.scale) * 3 / 8, endX, centerY + getHeight(paintable.scale) * 3 / 8);
+            paintable.rect = new Rect(
+                    startX,
+                    centerY - getHeight(paintable.settings) * 3 / 8,
+                    endX,
+                    centerY + getHeight(paintable.settings) * 3 / 8);
             canvas.drawRect(paintable.rect, paintable.getPaint());
         }
     }
