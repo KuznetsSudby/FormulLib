@@ -47,8 +47,8 @@ public class Settings {
         return colors.getColor(type);
     }
 
-    public float getTextSize() {
-        return values.getTextSize();
+    public float getTextPercent() {
+        return values.getTextPercent();
     }
 
     public int getColorText(int type) {
@@ -65,5 +65,9 @@ public class Settings {
 
     public Scale getScale() {
         return scale;
+    }
+
+    public float getTextSize() {
+        return getTextPercent() * scale.getScaledValue(values.getBlock());
     }
 }

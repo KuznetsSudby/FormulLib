@@ -1,9 +1,9 @@
 package com.kusu.constructor.LeafType;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.Rect;
 
-import com.kusu.constructor.Utils.Constants;
 import com.kusu.constructor.Prototype.Leaf;
 import com.kusu.constructor.Prototype.PaintableBlock;
 
@@ -20,12 +20,12 @@ public class Changeable extends Leaf {
 
     @Override
     public int getHeight() {
-        return settings.getValue(Constants.block);
+        return settings.getValue(settings.getValues().getBlock());
     }
 
     @Override
     public int getWidth() {
-        return settings.getValue(Constants.wBlock);
+        return settings.getValue(settings.getValues().getwBlock());
     }
 
     @Override
@@ -68,8 +68,9 @@ public class Changeable extends Leaf {
 
     @Override
     public  void drawText(Canvas canvas, int deltaX, int startY) {
-        if (block != null)
-            canvas.drawText(block.symbols, deltaX + Constants.deltaTextX, startY + getHeight() / 2 - Constants.deltaTextY, getPaintText());
+        if (block != null) {
+            drawCenterText(canvas, deltaX + getWidth()/2, startY, block.symbols);
+        }
     }
 
     @Override

@@ -2,7 +2,6 @@ package com.kusu.constructor.LeafType;
 
 import android.graphics.Canvas;
 
-import com.kusu.constructor.Utils.Constants;
 import com.kusu.constructor.Prototype.Leaf;
 import com.kusu.constructor.Prototype.PaintableBlock;
 
@@ -49,7 +48,7 @@ public class Power extends Leaf {
     public int[] getTopBottom(int[] size) {
         size[1] = Math.min(size[1], size[0] + getPowerStep() - getHeight());
         size[2] = Math.max(size[2], size[0] + getPowerStep());
-        if (list.size()>0) {
+        if (list.size() > 0) {
             size = list.get(0).getTopBottom(size);
         }
         return size;
@@ -79,7 +78,7 @@ public class Power extends Leaf {
         //     canvas.drawRect(deltaX, startY - getHeightToEnd() / 2, deltaX + list.get(0).getWidthToEnd(), startY + getHeightToEnd() / 2, getPaint());
     }
 
-    public int getPowerStep(){
-        return settings.getValue(Constants.block / 2);
+    public int getPowerStep() {
+        return settings.getValue(settings.getValues().getBlock() / 2);
     }
 }

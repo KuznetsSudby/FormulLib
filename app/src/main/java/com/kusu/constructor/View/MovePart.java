@@ -1,5 +1,6 @@
 package com.kusu.constructor.View;
 
+import com.kusu.constructor.Example.Default;
 import com.kusu.constructor.LeafType.Movable;
 
 import java.util.HashMap;
@@ -11,7 +12,7 @@ import java.util.Set;
  */
 
 public class MovePart {
-    HashMap<Integer, Movable> blocks;
+    HashMap<Integer, Movable> blocks = Default.getDefBlock();
 
     public MovePart(HashMap<Integer, Movable> blocks) {
         this.blocks = blocks;

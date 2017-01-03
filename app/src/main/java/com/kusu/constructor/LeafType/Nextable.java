@@ -1,9 +1,9 @@
 package com.kusu.constructor.LeafType;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.Rect;
 
-import com.kusu.constructor.Utils.Constants;
 import com.kusu.constructor.Prototype.Leaf;
 import com.kusu.constructor.Prototype.PaintableBlock;
 
@@ -20,12 +20,12 @@ public class Nextable extends Leaf {
 
     @Override
     public int getWidth() {
-        return settings.getValue(Constants.wBlock);
+        return settings.getValue(settings.getValues().getwBlock());
     }
 
     @Override
     public int getHeight() {
-        return settings.getValue(Constants.block);
+        return settings.getValue(settings.getValues().getBlock());
     }
 
     @Override
@@ -58,9 +58,9 @@ public class Nextable extends Leaf {
 
     @Override
     public int[] getTopBottom(int[] size) {
-        size[1] = Math.min(size[1], size[0] - getHeight()/2);
-        size[2] = Math.max(size[2], size[0] + getHeight()/2);
-        if (list.size()>0) {
+        size[1] = Math.min(size[1], size[0] - getHeight() / 2);
+        size[2] = Math.max(size[2], size[0] + getHeight() / 2);
+        if (list.size() > 0) {
             size = list.get(0).getTopBottom(size);
         }
         return size;
@@ -68,7 +68,7 @@ public class Nextable extends Leaf {
 
     @Override
     public void drawText(Canvas canvas, int deltaX, int startY) {
-        canvas.drawText(symbols, deltaX + Constants.deltaTextX, startY + getHeight() / 2 - Constants.deltaTextY, getPaintText());
+        drawCenterText(canvas, deltaX + getWidth()/2, startY, symbols);
     }
 
     @Override

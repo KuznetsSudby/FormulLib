@@ -3,16 +3,11 @@ package com.kusu.constructor.View;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.util.AttributeSet;
 
+import com.kusu.constructor.Example.Default;
 import com.kusu.constructor.Formul;
-import com.kusu.constructor.LeafType.Changeable;
 import com.kusu.constructor.LeafType.Movable;
 import com.kusu.constructor.Prototype.Leaf;
-import com.kusu.constructor.Settings.Colors;
-import com.kusu.constructor.Settings.Scale;
-import com.kusu.constructor.Settings.SizeValues;
-import com.kusu.constructor.Utils.Constants;
 
 import java.util.Map;
 
@@ -23,7 +18,7 @@ import java.util.Map;
 public class DrawThread {
 
     private final Formul formul;
-    private Leaf root = new Changeable("^");
+    private Leaf root = Default.getDefRoot();
 
     public DrawThread(Formul formul) {
         this.formul = formul;
@@ -76,7 +71,7 @@ public class DrawThread {
         int i = 0;
         for (Map.Entry<Integer, Movable> entry : formul.getMovePart().entrySet()) {
             if (entry.getValue().isVisible()) {
-                entry.getValue().draw(canvas, 100 + (Constants.wBlock + Constants.block) * (i % 5), 100 + Constants.block * 2 * (i / 5));
+             //   entry.getValue().draw(canvas, 100 + (Constants.wBlock + Constants.block) * (i % 5), 100 + Constants.block * 2 * (i / 5));
             }
             i++;
         }

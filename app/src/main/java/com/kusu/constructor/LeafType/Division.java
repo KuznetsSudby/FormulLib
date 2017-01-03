@@ -3,10 +3,8 @@ package com.kusu.constructor.LeafType;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 
-import com.kusu.constructor.Utils.Constants;
 import com.kusu.constructor.Prototype.Leaf;
 import com.kusu.constructor.Prototype.PaintableBlock;
-import com.kusu.constructor.Settings.Scale;
 import com.kusu.constructor.View.Settings;
 
 public class Division extends Leaf {
@@ -90,15 +88,15 @@ public class Division extends Leaf {
 
     public static class DivisionLine {
         public static int getHeight(Settings settings) {
-            return settings.getValue(Constants.blockDel);
+            return settings.getValue(settings.getValues().getDivision());
         }
 
         public static void drawLine(Canvas canvas, int startX, int centerY, int endX, PaintableBlock paintable) {
             paintable.rect = new Rect(
                     startX,
-                    centerY - getHeight(paintable.settings) * 3 / 8,
+                    (int) (centerY - getHeight(paintable.settings) * paintable.settings.getValues().getDivisionPaddingFactor()),
                     endX,
-                    centerY + getHeight(paintable.settings) * 3 / 8);
+                    (int) (centerY + getHeight(paintable.settings) * paintable.settings.getValues().getDivisionPaddingFactor()));
             canvas.drawRect(paintable.rect, paintable.getPaint());
         }
     }

@@ -20,12 +20,22 @@ import static com.kusu.constructor.Prototype.PaintableBlock.SYMBOL_POWER;
 public class Colors {
 
     private static int defBackground = Color.WHITE;
+    private static int defText = Color.BLACK;
+    private static int defDivision = Color.BLACK;
+    private static int defMovable = Color.LTGRAY;
+
     private int background = defBackground;
+    private int text = defText;
+    private int division = defDivision;
+    private int movable = defMovable;
 
     public Colors(TypedArray attrs) {
         if (attrs == null)
             return;
         background = attrs.getColor(R.styleable.fs_background_color, defBackground);
+        text = attrs.getColor(R.styleable.fs_text_color, defText);
+        division = attrs.getColor(R.styleable.fs_division_color, defDivision);
+        movable = attrs.getColor(R.styleable.fs_movable_color, defMovable);
     }
 
     public int getColor(int type) {

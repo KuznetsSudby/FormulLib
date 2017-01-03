@@ -1,5 +1,9 @@
 package com.kusu.constructor.Prototype;
 
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+
 import com.kusu.constructor.Settings.Colors;
 import com.kusu.constructor.LeafType.Movable;
 import com.kusu.constructor.LeafType.Changeable;
@@ -68,4 +72,35 @@ public abstract class Leaf extends PaintableBlock {
             if (leaf != null)
                 leaf.setTreeSettings(settings);
     }
+
+    public void drawCenterText(Canvas canvas, int centerX, int centerY, String text){
+        if (isOperation(text)){
+            Paint paint = getPaintText();
+            int txtSize = (int) settings.getTextSize() / 2;
+            canvas.drawRect(centerX - txtSize, centerY - txtSize, centerX + txtSize, centerY + txtSize, paint);
+        }else {
+            Rect mTextBoundRect = new Rect();
+            Paint paint = getPaintText();
+            paint.getTextBounds(text, 0, text.length(), mTextBoundRect);
+            float mTextWidth = paint.measureText(text);
+            float mTextHeight = mTextBoundRect.height();
+
+            canvas.drawText(text,
+                    centerX - (mTextWidth / 2f),
+                    centerY + (mTextHeight / 2f),
+                    paint
+            );
+        }
+    }
+
+    protected boolean isOperation(String text) {
+        if (text.equals("*"))
+            return true;
+        if (text.equals("+"))
+            return true;
+        if (text.equals("-"))
+            return true;
+        return false;
+    }
+
 }
