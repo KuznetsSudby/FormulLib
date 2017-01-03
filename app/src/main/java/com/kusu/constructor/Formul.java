@@ -27,23 +27,23 @@ public class Formul extends View {
     private TouchWorker worker = new TouchWorker(this);
     private Settings settings;
 
-    private void init(Context context, AttributeSet attrs) {
+    private void init(Context context, AttributeSet attrs) throws Exception {
         if (attrs == null)
-            settings = new Settings(null);
+            settings = new Settings(null, context);
         else {
             TypedArray pianoAttrs = context.obtainStyledAttributes(attrs, R.styleable.fs);
-            settings = new Settings(pianoAttrs);
+            settings = new Settings(pianoAttrs, context);
         }
         drawThread = new DrawThread(this);
         drawThread.updateRootReferences();
     }
 
-    public Formul(Context context) {
+    public Formul(Context context) throws Exception {
         super(context);
         init(context, null);
     }
 
-    public Formul(Context context, AttributeSet attrs) {
+    public Formul(Context context, AttributeSet attrs) throws Exception {
         super(context, attrs);
         init(context, attrs);
     }

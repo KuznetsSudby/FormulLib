@@ -25,8 +25,8 @@ public class SizeValues {
     private int padding = block;
     private boolean percentHeight = defPercentHeight;
     private float textPercent = defTextPercent;
-    private int wBlock = (int) (block * defBlockFactor);
-    private int division = (int) (block * defDivisionFactor);
+    private float blockFactor = defBlockFactor;
+    private float divisionFactor = defDivisionFactor;
     private float divisionPaddingFactor = defDivisionPaddingFactor;
 
     public SizeValues(TypedArray attrs) {
@@ -38,8 +38,8 @@ public class SizeValues {
         padding = attrs.getDimensionPixelSize(R.styleable.fs_padding, block);
         percentHeight = attrs.getBoolean(R.styleable.fs_percent_height, defPercentHeight);
         textPercent = attrs.getFloat(R.styleable.fs_text_percent, defTextPercent);
-        wBlock = (int) (block * attrs.getFloat(R.styleable.fs_block_factor, defBlockFactor));
-        division = (int) (block * attrs.getFloat(R.styleable.fs_division_factor, defDivisionFactor));
+        blockFactor = attrs.getFloat(R.styleable.fs_block_factor, defBlockFactor);
+        divisionFactor = attrs.getFloat(R.styleable.fs_division_factor, defDivisionFactor);
         divisionPaddingFactor = attrs.getFloat(R.styleable.fs_division_padding_factor, defDivisionPaddingFactor);
     }
 
@@ -59,19 +59,11 @@ public class SizeValues {
     }
 
     public int getDivision() {
-        return division;
-    }
-
-    public void setDivision(int division) {
-        this.division = division;
+        return (int) (block * divisionFactor);
     }
 
     public int getwBlock() {
-        return wBlock;
-    }
-
-    public void setwBlock(int wBlock) {
-        this.wBlock = wBlock;
+        return (int) (block * blockFactor);
     }
 
     public boolean isPercentHeight() {
@@ -120,5 +112,21 @@ public class SizeValues {
 
     public void setTextPercent(float textPercent) {
         this.textPercent = textPercent;
+    }
+
+    public float getBlockFactor() {
+        return blockFactor;
+    }
+
+    public void setBlockFactor(float blockFactor) {
+        this.blockFactor = blockFactor;
+    }
+
+    public float getDivisionFactor() {
+        return divisionFactor;
+    }
+
+    public void setDivisionFactor(float divisionFactor) {
+        this.divisionFactor = divisionFactor;
     }
 }

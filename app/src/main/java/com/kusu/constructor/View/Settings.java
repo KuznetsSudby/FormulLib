@@ -1,10 +1,12 @@
 package com.kusu.constructor.View;
 
+import android.content.Context;
 import android.content.res.TypedArray;
 
 import com.kusu.constructor.Settings.Colors;
 import com.kusu.constructor.Settings.Scale;
 import com.kusu.constructor.Settings.SizeValues;
+import com.kusu.constructor.Utils.ExceptionWorker;
 
 /**
  * Created by KuSu on 02.01.2017.
@@ -15,12 +17,15 @@ public class Settings {
     private Colors colors;
     private Scale scale;
 
-    public Settings(TypedArray attrs) {
+    public Settings(TypedArray attrs, Context context) throws Exception {
         values = new SizeValues(attrs);
         colors = new Colors(attrs);
         scale = new Scale(attrs);
-        if (attrs != null)
+        if (attrs != null) {
             attrs.recycle();
+            ExceptionWorker.validate(context, scale);
+            ExceptionWorker.validate(context, values);
+        }
     }
 
     public int getFormulHeight(int height) {

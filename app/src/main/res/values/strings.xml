@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Constructor</string>
+    <string name="exception" formatted="false">\"%s\" should be from \"%s\" to \"%s\", but it is \"%s\"</string>
+    <string name="exception_min_max" formatted="false">\"%s\" should be more than \"%s\", but \"%s\" less than \"%s\"</string>
 </resources>
