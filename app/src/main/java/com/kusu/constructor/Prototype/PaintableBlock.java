@@ -19,6 +19,9 @@ public abstract class PaintableBlock implements DrawableBlock {
     public final static int SYMBOL_MOVABLE = 4;
     public final static int SYMBOL_MOVABLE_GOOD = 5;
     public final static int SYMBOL_MOVABLE_BAD = 6;
+    public final static int SYMBOL_MINUS = 7;
+    public final static int SYMBOL_PLUS = 8;
+    public final static int SYMBOL_MULTIPLY = 9;
 
     public String symbols;
     public Rect rect;
@@ -58,6 +61,7 @@ public abstract class PaintableBlock implements DrawableBlock {
             paint = new Paint();
         paint.setColor(settings.getColors().getText());
         paint.setStyle(Paint.Style.FILL);
+        //paint.setFakeBoldText(true);
         paint.setTextSize(settings.getTextSize());
         return paint;
     }
@@ -79,6 +83,12 @@ public abstract class PaintableBlock implements DrawableBlock {
                 return settings.getDrawables().getGoodBlock();
             case SYMBOL_MOVABLE:
                 return settings.getDrawables().getMovableBlock();
+            case SYMBOL_MULTIPLY:
+                return settings.getDrawables().getMultiplyBlock();
+            case SYMBOL_PLUS:
+                return settings.getDrawables().getPlusBlock();
+            case SYMBOL_MINUS:
+                return settings.getDrawables().getMinusBlock();
         }
     }
 }

@@ -11,6 +11,7 @@ import com.kusu.constructor.LeafType.Division;
 import com.kusu.constructor.LeafType.Nextable;
 import com.kusu.constructor.LeafType.Power;
 import com.kusu.constructor.Settings.Scale;
+import com.kusu.constructor.Utils.Utils;
 import com.kusu.constructor.View.Settings;
 
 import java.util.ArrayList;
@@ -75,9 +76,8 @@ public abstract class Leaf extends PaintableBlock {
 
     public void drawCenterText(Canvas canvas, int centerX, int centerY, String text){
         if (isOperation(text)){
-            Paint paint = getPaintText();
             int txtSize = (int) settings.getTextSize() / 2;
-            canvas.drawRect(centerX - txtSize, centerY - txtSize, centerX + txtSize, centerY + txtSize, paint);
+            drawDrawableInCanvas(canvas, getDrawable(Utils.convertOperationSymbols(text)), new Rect(centerX - txtSize, centerY - txtSize, centerX + txtSize, centerY + txtSize));
         }else {
             Rect mTextBoundRect = new Rect();
             Paint paint = getPaintText();

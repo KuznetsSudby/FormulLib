@@ -27,5 +27,8 @@
         <attr name="good_block" format="reference"/>
         <attr name="changeable_block" format="reference"/>
         <attr name="movable_block" format="reference"/>
+        <attr name="plus_block" format="reference"/>
+        <attr name="minus_block" format="reference"/>
+        <attr name="multiply_block" format="reference"/>
     </declare-styleable>
 </resources>

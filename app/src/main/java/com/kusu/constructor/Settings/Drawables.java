@@ -14,20 +14,25 @@ import com.kusu.constructor.R;
  */
 
 public class Drawables {
-
-	// TODO: 1/4/2017 знаки операций нужны
-
 	private static @DrawableRes int defIDDefaultBlock = R.drawable.bg_default;
 	private static @DrawableRes int defIDMovableBlock = R.drawable.bg_movable;
 	private static @DrawableRes int defIDChangeableBlock = R.drawable.bg_changeable;
 	private static @DrawableRes int defIDGoodBlock = R.drawable.bg_good;
 	private static @DrawableRes int defIDBadBlock = R.drawable.bg_bad;
 
+	private static @DrawableRes int defIDPlusBlock = R.drawable.ic_plus;
+	private static @DrawableRes int defIDMinusBlock = R.drawable.ic_minus;
+	private static @DrawableRes int defIDMultiplyBlock = R.drawable.ic_mult;
+
 	private Drawable defaultBlock;
 	private Drawable movableBlock;
 	private Drawable changeableBlock;
 	private Drawable goodBlock;
 	private Drawable badBlock;
+
+	private Drawable plusBlock;
+	private Drawable minusBlock;
+	private Drawable multiplyBlock;
 
 	public Drawables(TypedArray attrs) {
 		if (attrs == null)
@@ -50,6 +55,13 @@ public class Drawables {
 			goodBlock = context.getResources().getDrawable(defIDGoodBlock);
 		if (badBlock == null)
 			badBlock = context.getResources().getDrawable(defIDBadBlock);
+
+		if (plusBlock == null)
+			plusBlock = context.getResources().getDrawable(defIDPlusBlock);
+		if (minusBlock == null)
+			minusBlock = context.getResources().getDrawable(defIDMinusBlock);
+		if (multiplyBlock == null)
+			multiplyBlock = context.getResources().getDrawable(defIDMultiplyBlock);
 
 		return this;
 	}
@@ -92,5 +104,29 @@ public class Drawables {
 
 	public void setDefaultBlock(Drawable defaultBlock) {
 		this.defaultBlock = defaultBlock;
+	}
+
+	public Drawable getPlusBlock() {
+		return plusBlock;
+	}
+
+	public void setPlusBlock(Drawable plusBlock) {
+		this.plusBlock = plusBlock;
+	}
+
+	public Drawable getMinusBlock() {
+		return minusBlock;
+	}
+
+	public void setMinusBlock(Drawable minusBlock) {
+		this.minusBlock = minusBlock;
+	}
+
+	public Drawable getMultiplyBlock() {
+		return multiplyBlock;
+	}
+
+	public void setMultiplyBlock(Drawable multiplyBlock) {
+		this.multiplyBlock = multiplyBlock;
 	}
 }
