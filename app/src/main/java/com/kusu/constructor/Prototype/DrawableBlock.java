@@ -6,7 +6,7 @@ import android.graphics.Canvas;
  * Created by KuSu on 08.11.2016.
  */
 
-public interface Drawable {
+public interface DrawableBlock {
     int getHeight();
     int getWidth();
     int getHeightToEnd();

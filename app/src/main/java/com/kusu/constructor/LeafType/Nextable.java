@@ -20,7 +20,8 @@ public class Nextable extends Leaf {
 
     @Override
     public int getWidth() {
-        return settings.getValue(settings.getValues().getwBlock());
+      //  return settings.getValue(settings.getValues().getwBlock());
+        return settings.getValue(settings.getValues().getBlock());
     }
 
     @Override
@@ -74,6 +75,6 @@ public class Nextable extends Leaf {
     @Override
     public void drawTerritory(Canvas canvas, int deltaX, int startY) {
         rect = new Rect(deltaX, startY - getHeight() / 2, deltaX + getWidth(), startY + getHeight() / 2);
-        canvas.drawRect(rect, getPaint());
+        drawDrawableInCanvas(canvas, getDrawable(getType()), rect);
     }
 }

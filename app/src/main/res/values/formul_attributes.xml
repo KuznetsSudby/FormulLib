@@ -20,6 +20,12 @@
         <attr name="background_color" format="color" />
         <attr name="text_color" format="color" />
         <attr name="division_color" format="color" />
-        <attr name="movable_color" format="color" />
+
+        <!--colors-drawable-->
+        <attr name="bad_block" format="reference"/>
+        <attr name="default_block" format="reference"/>
+        <attr name="good_block" format="reference"/>
+        <attr name="changeable_block" format="reference"/>
+        <attr name="movable_block" format="reference"/>
     </declare-styleable>
 </resources>

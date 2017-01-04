@@ -54,7 +54,7 @@ public class Movable extends Leaf {
         deltaX -= getHeight() / 2;
         startY -= getWidth() / 2;
         rect = new Rect(deltaX, startY, deltaX + getWidth(), startY + getHeight());
-        canvas.drawRect(rect, getPaint());
+        drawDrawableInCanvas(canvas, getDrawable(getType()), rect);
     }
 
     @Override

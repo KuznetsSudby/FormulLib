@@ -3,4 +3,23 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="defaultBlock">#00ffffff</color>
+    <color name="defaultBlockBorder">#00ffffff</color>
+
+    <color name="goodBlock">#85e18a</color>
+    <color name="goodBlockBorder">#01c929</color>
+
+    <color name="badBlock">#f47575</color>
+    <color name="badBlockBorder">#d40000</color>
+
+    <color name="changeableBlock">#d6d6d6</color>
+    <color name="changeableBlockBorder">#868686</color>
+
+    <color name="movableBlock">@color/changeableBlock</color>
+    <color name="movableBlockBorder">@color/changeableBlockBorder</color>
+
+    <color name="background">#fff</color>
+    <color name="divisionLine">#000</color>
+    <color name="textColor">#000</color>
 </resources>

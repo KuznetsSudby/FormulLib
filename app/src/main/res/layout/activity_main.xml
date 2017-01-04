@@ -9,6 +9,5 @@
     <com.kusu.constructor.Formul
         android:id="@+id/formul"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        fs:background_color="@color/colorPrimary"/>
+        android:layout_height="match_parent"/>
 </RelativeLayout>

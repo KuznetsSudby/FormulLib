@@ -1,7 +1,13 @@
 package com.kusu.constructor.Settings;
 
+import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.RippleDrawable;
+import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
+import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 
 import com.kusu.constructor.Formul;
@@ -19,51 +25,64 @@ import static com.kusu.constructor.Prototype.PaintableBlock.SYMBOL_POWER;
 
 public class Colors {
 
-    private static int defBackground = Color.WHITE;
-    private static int defText = Color.BLACK;
-    private static int defDivision = Color.BLACK;
-    private static int defMovable = Color.LTGRAY;
+    private static @ColorInt int defBackground;
+    private static @ColorInt int defText;
+    private static @ColorInt int defDivision;
 
-    private int background = defBackground;
-    private int text = defText;
-    private int division = defDivision;
-    private int movable = defMovable;
+    private static @ColorRes int defIDBackground = R.color.background;
+    private static @ColorRes int defIDText = R.color.textColor;
+    private static @ColorRes int defIDDivision = R.color.divisionLine;
 
-    public Colors(TypedArray attrs) {
+    private @ColorInt int background;
+    private @ColorInt int text;
+    private @ColorInt int divisionLine;
+
+    public Colors(Context context) {
+        initColors(context);
+    }
+
+    public Colors initAttr(TypedArray attrs) {
         if (attrs == null)
-            return;
+            return this;
         background = attrs.getColor(R.styleable.fs_background_color, defBackground);
         text = attrs.getColor(R.styleable.fs_text_color, defText);
-        division = attrs.getColor(R.styleable.fs_division_color, defDivision);
-        movable = attrs.getColor(R.styleable.fs_movable_color, defMovable);
+        divisionLine = attrs.getColor(R.styleable.fs_division_color, defDivision);
+        return this;
     }
 
-    public int getColor(int type) {
-        switch (type) {
-            default:
-            case SYMBOL_CHANGABLE:
-            case SYMBOL_MOVABLE:
-                return Color.LTGRAY;
-            case SYMBOL_POWER:
-                return Color.GREEN;
-            case SYMBOL_DIVISION:
-                return Color.BLACK;
-            case SYMBOL_NEXTABLE:
-                return Color.WHITE;
-        }
+    public Colors initColors(Context context){
+        defBackground = context.getResources().getColor(defIDBackground);
+        defText = context.getResources().getColor(defIDText);
+        defDivision = context.getResources().getColor(defIDDivision);
+
+        background = defBackground;
+        text = defText;
+        divisionLine = defDivision;
+
+        return this;
     }
 
-    public int getColorText(int type) {
-        switch (type) {
-            default:
-            case SYMBOL_CHANGABLE:
-                return Color.BLACK;
-            case SYMBOL_POWER:
-                return Color.BLACK;
-        }
+    public @ColorInt int getDivisionLine() {
+        return divisionLine;
     }
 
-    public int getBackground() {
+    public void setDivisionLine(@ColorInt int divisionLine) {
+        this.divisionLine = divisionLine;
+    }
+
+    public @ColorInt int getText() {
+        return text;
+    }
+
+    public void setText(@ColorInt int text) {
+        this.text = text;
+    }
+
+    public @ColorInt int getBackground() {
         return background;
+    }
+
+    public void setBackground(@ColorInt int background) {
+        this.background = background;
     }
 }

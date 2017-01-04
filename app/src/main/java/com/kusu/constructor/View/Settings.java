@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 
 import com.kusu.constructor.Settings.Colors;
+import com.kusu.constructor.Settings.Drawables;
 import com.kusu.constructor.Settings.Scale;
 import com.kusu.constructor.Settings.SizeValues;
 import com.kusu.constructor.Utils.ExceptionWorker;
@@ -13,66 +14,73 @@ import com.kusu.constructor.Utils.ExceptionWorker;
  */
 
 public class Settings {
-    private SizeValues values;
-    private Colors colors;
-    private Scale scale;
+	private SizeValues values;
+	private Colors colors;
+	private Scale scale;
+	private Drawables drawables;
 
-    public Settings(TypedArray attrs, Context context) throws Exception {
-        values = new SizeValues(attrs);
-        colors = new Colors(attrs);
-        scale = new Scale(attrs);
-        if (attrs != null) {
-            attrs.recycle();
-            ExceptionWorker.validate(context, scale);
-            ExceptionWorker.validate(context, values);
-        }
-    }
+	public Settings(TypedArray attrs, Context context) throws Exception {
+		values = new SizeValues(attrs);
+		scale = new Scale(attrs);
 
-    public int getFormulHeight(int height) {
-        return values.getFormulHeight(height);
-    }
+		colors = new Colors(context)
+				         .initAttr(attrs);
 
-    public int getPadding() {
-        return values.getPadding();
-    }
+		drawables = new Drawables(attrs)
+				            .initDrawables(context);
 
-    public void changeScale(int width, int height, int widthToEnd, int heightToEnd) {
-        scale.changeScale(width, height, widthToEnd, heightToEnd, values.getPadding());
-    }
+		if (attrs != null) {
+			attrs.recycle();
+			ExceptionWorker.validate(context, scale);
+			ExceptionWorker.validate(context, values);
+		}
+	}
 
-    public int getBackground() {
-        return colors.getBackground();
-    }
+	public int getFormulHeight(int height) {
+		return values.getFormulHeight(height);
+	}
 
-    public int getValue(int wBlock) {
-        return scale.getScaledValue(wBlock);
-    }
+	public int getPadding() {
+		return values.getPadding();
+	}
 
-    public int getColor(int type) {
-        return colors.getColor(type);
-    }
+	public void changeScale(int width, int height, int widthToEnd, int heightToEnd) {
+		scale.changeScale(width, height, widthToEnd, heightToEnd, values.getPadding());
+	}
 
-    public float getTextPercent() {
-        return values.getTextPercent();
-    }
+	public int getBackground() {
+		return colors.getBackground();
+	}
 
-    public int getColorText(int type) {
-        return colors.getColorText(type);
-    }
+	public int getValue(int wBlock) {
+		return scale.getScaledValue(wBlock);
+	}
 
-    public SizeValues getValues() {
-        return values;
-    }
+	public float getTextPercent() {
+		return values.getTextPercent();
+	}
 
-    public Colors getColors() {
-        return colors;
-    }
+	public SizeValues getValues() {
+		return values;
+	}
 
-    public Scale getScale() {
-        return scale;
-    }
+	public Colors getColors() {
+		return colors;
+	}
 
-    public float getTextSize() {
-        return getTextPercent() * scale.getScaledValue(values.getBlock());
-    }
+	public Scale getScale() {
+		return scale;
+	}
+
+	public float getTextSize() {
+		return getTextPercent() * scale.getScaledValue(values.getBlock());
+	}
+
+	public Drawables getDrawables() {
+		return drawables;
+	}
+
+	public void setDrawables(Drawables drawables) {
+		this.drawables = drawables;
+	}
 }
