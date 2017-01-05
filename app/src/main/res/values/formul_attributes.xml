@@ -9,12 +9,14 @@
         <attr name="percent" format="float" />
         <attr name="height" format="dimension" />
         <attr name="percent_height" format="boolean" />
-        <attr name="padding" format="dimension" />
+        <attr name="padding_factor" format="float" />
         <attr name="text_percent" format="float" />
         <attr name="block_size" format="dimension" />
         <attr name="block_factor" format="float" />
         <attr name="division_factor" format="float" />
         <attr name="division_padding_factor" format="float" />
+        <attr name="movable_divider_factor" format="float" />
+        <attr name="group_movables" format="boolean"/>
 
         <!--colors-->
         <attr name="background_color" format="color" />

@@ -9,124 +9,156 @@ import com.kusu.constructor.R;
  */
 
 public class SizeValues {
-    private static int defBlock = 10;
-    private static float defBlockFactor = 1.5f;
-    private static float defDivisionFactor = 0.2f;
-    private static float defDivisionPaddingFactor = 3 / 8.0f;
+	private static int defBlock = 10;
+	private static float defBlockFactor = 1.5f;
+	private static float defDivisionFactor = 0.2f;
+	private static float defDivisionPaddingFactor = 3 / 8.0f;
+	private static float defPaddingFactor = 3;
 
-    private static boolean defPercentHeight = true;
-    private static float defPercent = 0.5f;
-    private static int defHeight = 600;
-    private static float defTextPercent = 0.6f;
+	private static float defMovableDividerFactor = 10;
+	private static boolean defGroupMovables = true;
 
-    private int block = defBlock;
-    private float percent = defPercent;
-    private int height = defHeight;
-    private int padding = block;
-    private boolean percentHeight = defPercentHeight;
-    private float textPercent = defTextPercent;
-    private float blockFactor = defBlockFactor;
-    private float divisionFactor = defDivisionFactor;
-    private float divisionPaddingFactor = defDivisionPaddingFactor;
+	private static boolean defPercentHeight = true;
+	private static float defPercent = 0.5f;
+	private static int defHeight = 600;
+	private static float defTextPercent = 0.6f;
 
-    public SizeValues(TypedArray attrs) {
-        if (attrs == null)
-            return;
-        block = attrs.getDimensionPixelSize(R.styleable.fs_block_size, defBlock);
-        percent = attrs.getFloat(R.styleable.fs_percent, defPercent);
-        height = attrs.getDimensionPixelSize(R.styleable.fs_height, defHeight);
-        padding = attrs.getDimensionPixelSize(R.styleable.fs_padding, block);
-        percentHeight = attrs.getBoolean(R.styleable.fs_percent_height, defPercentHeight);
-        textPercent = attrs.getFloat(R.styleable.fs_text_percent, defTextPercent);
-        blockFactor = attrs.getFloat(R.styleable.fs_block_factor, defBlockFactor);
-        divisionFactor = attrs.getFloat(R.styleable.fs_division_factor, defDivisionFactor);
-        divisionPaddingFactor = attrs.getFloat(R.styleable.fs_division_padding_factor, defDivisionPaddingFactor);
-    }
+	private int block = defBlock;
+	private float percent = defPercent;
+	private int height = defHeight;
+	private float paddingFactor = defPaddingFactor;
+	private float movableDividerFactor = defMovableDividerFactor;
+	private boolean groupMovables = defGroupMovables;
+	private boolean percentHeight = defPercentHeight;
+	private float textPercent = defTextPercent;
+	private float blockFactor = defBlockFactor;
+	private float divisionFactor = defDivisionFactor;
+	private float divisionPaddingFactor = defDivisionPaddingFactor;
 
-    public int getFormulHeight(int h) {
-        if (percentHeight) {
-            return (int) (h * percent);
-        } else
-            return (int) Math.min(h, height);
-    }
+	public SizeValues(TypedArray attrs) {
+		if (attrs == null)
+			return;
+		block = attrs.getDimensionPixelSize(R.styleable.fs_block_size, defBlock);
+		percent = attrs.getFloat(R.styleable.fs_percent, defPercent);
+		height = attrs.getDimensionPixelSize(R.styleable.fs_height, defHeight);
+		paddingFactor = attrs.getFloat(R.styleable.fs_padding_factor, defPaddingFactor);
+		movableDividerFactor = attrs.getFloat(R.styleable.fs_movable_divider_factor, defMovableDividerFactor);
+		groupMovables = attrs.getBoolean(R.styleable.fs_group_movables, defGroupMovables);
+		percentHeight = attrs.getBoolean(R.styleable.fs_percent_height, defPercentHeight);
+		textPercent = attrs.getFloat(R.styleable.fs_text_percent, defTextPercent);
+		blockFactor = attrs.getFloat(R.styleable.fs_block_factor, defBlockFactor);
+		divisionFactor = attrs.getFloat(R.styleable.fs_division_factor, defDivisionFactor);
+		divisionPaddingFactor = attrs.getFloat(R.styleable.fs_division_padding_factor, defDivisionPaddingFactor);
+	}
 
-    public float getDivisionPaddingFactor() {
-        return divisionPaddingFactor;
-    }
+	public int getFormulHeight(int h) {
+		if (percentHeight) {
+			return (int) (h * percent);
+		} else
+			return (int) Math.min(h, height);
+	}
 
-    public void setDivisionPaddingFactor(float divisionPaddingFactor) {
-        this.divisionPaddingFactor = divisionPaddingFactor;
-    }
+	public float getDivisionPaddingFactor() {
+		return divisionPaddingFactor;
+	}
 
-    public int getDivision() {
-        return (int) (block * divisionFactor);
-    }
+	public void setDivisionPaddingFactor(float divisionPaddingFactor) {
+		this.divisionPaddingFactor = divisionPaddingFactor;
+	}
 
-    public int getwBlock() {
-        return (int) (block * blockFactor);
-    }
+	public int getDivision() {
+		return (int) (block * divisionFactor);
+	}
 
-    public boolean isPercentHeight() {
-        return percentHeight;
-    }
+	public int getwBlock() {
+		return (int) (block * blockFactor);
+	}
 
-    public void setPercentHeight(boolean percentHeight) {
-        this.percentHeight = percentHeight;
-    }
+	public boolean isPercentHeight() {
+		return percentHeight;
+	}
 
-    public int getPadding() {
-        return padding;
-    }
+	public void setPercentHeight(boolean percentHeight) {
+		this.percentHeight = percentHeight;
+	}
 
-    public void setPadding(int padding) {
-        this.padding = padding;
-    }
+	public int getPadding() {
+		return (int) (block * paddingFactor);
+	}
 
-    public int getHeight() {
-        return height;
-    }
+	public int getMovableDivider() {
+		return (int) (block * movableDividerFactor);
+	}
 
-    public void setHeight(int height) {
-        this.height = height;
-    }
+	public int getHeight() {
+		return height;
+	}
 
-    public float getPercent() {
-        return percent;
-    }
+	public void setHeight(int height) {
+		this.height = height;
+	}
 
-    public void setPercent(float percent) {
-        this.percent = percent;
-    }
+	public float getPercent() {
+		return percent;
+	}
 
-    public int getBlock() {
-        return block;
-    }
+	public void setPercent(float percent) {
+		this.percent = percent;
+	}
 
-    public void setBlock(int block) {
-        this.block = block;
-    }
+	public int getBlock() {
+		return block;
+	}
 
-    public float getTextPercent() {
-        return textPercent;
-    }
+	public void setBlock(int block) {
+		this.block = block;
+	}
 
-    public void setTextPercent(float textPercent) {
-        this.textPercent = textPercent;
-    }
+	public float getTextPercent() {
+		return textPercent;
+	}
 
-    public float getBlockFactor() {
-        return blockFactor;
-    }
+	public void setTextPercent(float textPercent) {
+		this.textPercent = textPercent;
+	}
 
-    public void setBlockFactor(float blockFactor) {
-        this.blockFactor = blockFactor;
-    }
+	public float getBlockFactor() {
+		return blockFactor;
+	}
 
-    public float getDivisionFactor() {
-        return divisionFactor;
-    }
+	public void setBlockFactor(float blockFactor) {
+		this.blockFactor = blockFactor;
+	}
 
-    public void setDivisionFactor(float divisionFactor) {
-        this.divisionFactor = divisionFactor;
-    }
+	public float getDivisionFactor() {
+		return divisionFactor;
+	}
+
+	public void setDivisionFactor(float divisionFactor) {
+		this.divisionFactor = divisionFactor;
+	}
+
+	public float getPaddingFactor() {
+		return paddingFactor;
+	}
+
+	public void setPaddingFactor(float paddingFactor) {
+		this.paddingFactor = paddingFactor;
+	}
+
+	public float getMovableDividerFactor() {
+		return movableDividerFactor;
+	}
+
+	public void setMovableDividerFactor(float movableDividerFactor) {
+		this.movableDividerFactor = movableDividerFactor;
+	}
+
+	public boolean isGroupMovables() {
+		return groupMovables;
+	}
+
+	public void setGroupMovables(boolean groupMovables) {
+		this.groupMovables = groupMovables;
+	}
 }

@@ -51,15 +51,13 @@ public class Movable extends Leaf {
 
     @Override
     protected void drawTerritory(Canvas canvas, int deltaX, int startY) {
-        deltaX -= getHeight() / 2;
-        startY -= getWidth() / 2;
         rect = new Rect(deltaX, startY, deltaX + getWidth(), startY + getHeight());
         drawDrawableInCanvas(canvas, getDrawable(getType()), rect);
     }
 
     @Override
     protected void drawText(Canvas canvas, int deltaX, int startY) {
-        drawCenterText(canvas, deltaX + getWidth()/2, startY, symbols);
+        drawCenterText(canvas, deltaX + getWidth()/2, startY + getHeight()/2, symbols);
     }
 
     @Override

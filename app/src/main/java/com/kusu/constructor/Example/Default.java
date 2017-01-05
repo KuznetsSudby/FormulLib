@@ -3,6 +3,7 @@ package com.kusu.constructor.Example;
 import com.kusu.constructor.LeafType.Movable;
 import com.kusu.constructor.Prototype.Leaf;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -11,18 +12,18 @@ import java.util.HashMap;
 
 public class Default {
 
-    public static HashMap<Integer, Movable> getDefBlock() {
-        HashMap<Integer, Movable> blocks = new HashMap<>();
-        blocks.put(0, new Movable(0, "H"));
-        blocks.put(1, new Movable(1, "A"));
-        blocks.put(2, new Movable(2, "B"));
-        blocks.put(3, new Movable(3, "C"));
-        blocks.put(4, new Movable(4, "D"));
-        blocks.put(5, new Movable(5, "E"));
-        blocks.put(6, new Movable(6, "F"));
-        blocks.put(7, new Movable(7, "J"));
-        blocks.put(8, new Movable(8, "G"));
-        blocks.put(9, new Movable(9, "U"));
+    public static ArrayList<Movable> getDefBlock() {
+        ArrayList<Movable> blocks = new ArrayList<>();
+        blocks.add(new Movable(0, "H"));
+        blocks.add(new Movable(1, "A"));
+        blocks.add(new Movable(2, "B"));
+        blocks.add(new Movable(3, "C"));
+        blocks.add(new Movable(4, "D"));
+        blocks.add(new Movable(5, "E"));
+        blocks.add(new Movable(6, "F"));
+        blocks.add(new Movable(7, "J"));
+        blocks.add(new Movable(8, "G"));
+        blocks.add(new Movable(9, "U"));
         return blocks;
     }
 

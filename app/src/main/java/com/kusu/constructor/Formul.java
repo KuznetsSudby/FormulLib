@@ -13,7 +13,9 @@ import com.kusu.constructor.Prototype.Leaf;
 import com.kusu.constructor.View.TouchWorker;
 import com.kusu.constructor.View.DrawThread;
 import com.kusu.constructor.View.Settings;
+import com.kusu.constructor.View.Tree;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -23,7 +25,8 @@ import java.util.HashMap;
 public class Formul extends View {
 
     private DrawThread drawThread;
-    private MovePart part = new MovePart(new HashMap<Integer, Movable>());
+    private MovePart part;
+    private Tree tree;
     private TouchWorker worker = new TouchWorker(this);
     private Settings settings;
 
@@ -34,8 +37,11 @@ public class Formul extends View {
             TypedArray pianoAttrs = context.obtainStyledAttributes(attrs, R.styleable.fs);
             settings = new Settings(pianoAttrs, context);
         }
+        part = new MovePart(this);
+        tree = new Tree(this);
         drawThread = new DrawThread(this);
-        drawThread.updateRootReferences();
+        tree.updateRootReferences();
+        part.updateBlockReferences(settings);
     }
 
     public Formul(Context context) throws Exception {
@@ -48,8 +54,11 @@ public class Formul extends View {
         init(context, attrs);
     }
 
-    public Formul setBlocks(HashMap<Integer, Movable> blocks) {
-        part = new MovePart(blocks);
+    public Formul setBlocks(ArrayList<Movable> blocks) {
+        part = new MovePart(this);
+        worker.clear();
+        part.update(blocks);
+        part.updateBlockReferences(settings);
         return this;
     }
 
@@ -65,12 +74,12 @@ public class Formul extends View {
     }
 
     public Leaf getRoot() {
-        return drawThread.getRoot();
+        return tree.getRoot();
     }
 
     public Formul setRoot(Leaf root) {
-        drawThread.setRoot(root);
-        drawThread.updateRootReferences();
+        tree.setRoot(root);
+        tree.updateRootReferences();
         return this;
     }
 
@@ -84,5 +93,9 @@ public class Formul extends View {
 
     public Settings getSettings() {
         return settings;
+    }
+
+    public Tree getTree() {
+        return tree;
     }
 }

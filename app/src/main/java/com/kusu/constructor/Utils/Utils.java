@@ -18,4 +18,10 @@ public class Utils {
 		}
 		return -1;
 	}
+
+	public static int roundMore(float round) {
+		if (round > Math.round(round))
+			return Math.round(round)+1;
+		return Math.round(round);
+	}
 }

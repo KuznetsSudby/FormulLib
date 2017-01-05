@@ -34,9 +34,9 @@ public class TouchWorker extends GestureDetector.SimpleOnGestureListener{
                     formul.getMovePart().get(block.id).move();
                     movable = block;
                 } else {
-                    for (Map.Entry<Integer, Movable> bl : formul.getMovePart().entrySet())
-                        if (bl.getValue().isInRect(targetX, targetY)) {
-                            movable = bl.getValue();
+                    for (Movable bl : formul.getMovePart().getBlocks())
+                        if (bl.isInRect(targetX, targetY)) {
+                            movable = bl;
                             movable.move();
                             return true;
                         }
@@ -58,6 +58,10 @@ public class TouchWorker extends GestureDetector.SimpleOnGestureListener{
 
     public void draw(Canvas canvas) {
         if (movable != null)
-            movable.draw(canvas, targetX, targetY);
+            movable.draw(canvas, targetX - movable.getHeight()/2, targetY - movable.getHeight()/2);
+    }
+
+    public void clear() {
+        movable = null;
     }
 }

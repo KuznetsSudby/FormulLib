@@ -61,7 +61,7 @@ public abstract class PaintableBlock implements DrawableBlock {
             paint = new Paint();
         paint.setColor(settings.getColors().getText());
         paint.setStyle(Paint.Style.FILL);
-        //paint.setFakeBoldText(true);
+        paint.setFakeBoldText(true);
         paint.setTextSize(settings.getTextSize());
         return paint;
     }
