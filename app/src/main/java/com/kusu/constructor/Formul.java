@@ -70,7 +70,11 @@ public class Formul extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        return worker.onTouchEvent(event);
+        if (worker.onTouchEvent(event)){
+            invalidate();
+            return true;
+        }
+        return false;
     }
 
     public Leaf getRoot() {

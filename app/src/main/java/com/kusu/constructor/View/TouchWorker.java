@@ -36,9 +36,11 @@ public class TouchWorker extends GestureDetector.SimpleOnGestureListener{
                 } else {
                     for (Movable bl : formul.getMovePart().getBlocks())
                         if (bl.isInRect(targetX, targetY)) {
-                            movable = bl;
-                            movable.move();
-                            return true;
+                            if (bl.isVisible()) {
+                                movable = bl;
+                                movable.move();
+                                return true;
+                            }
                         }
                 }
                 break;
