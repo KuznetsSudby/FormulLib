@@ -11,7 +11,7 @@ import java.util.HashMap;
  */
 
 public class Default {
-
+    //todo написать парсеры;
     public static ArrayList<Movable> getDefBlock() {
         ArrayList<Movable> blocks = new ArrayList<>();
         blocks.add(new Movable(0, "H"));

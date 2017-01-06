@@ -8,6 +8,8 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.kusu.constructor.LeafType.Movable;
+import com.kusu.constructor.Utils.Result;
+import com.kusu.constructor.View.Listeners;
 import com.kusu.constructor.View.MovePart;
 import com.kusu.constructor.Prototype.Leaf;
 import com.kusu.constructor.View.TouchWorker;
@@ -29,6 +31,7 @@ public class Formul extends View {
     private Tree tree;
     private TouchWorker worker = new TouchWorker(this);
     private Settings settings;
+    private Listeners listeners;
 
     private void init(Context context, AttributeSet attrs) throws Exception {
         if (attrs == null)
@@ -59,6 +62,7 @@ public class Formul extends View {
         worker.clear();
         part.update(blocks);
         part.updateBlockReferences(settings);
+        invalidate();
         return this;
     }
 
@@ -70,7 +74,7 @@ public class Formul extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (worker.onTouchEvent(event)){
+        if (worker.onTouchEvent(event)) {
             invalidate();
             return true;
         }
@@ -84,6 +88,7 @@ public class Formul extends View {
     public Formul setRoot(Leaf root) {
         tree.setRoot(root);
         tree.updateRootReferences();
+        invalidate();
         return this;
     }
 
@@ -101,5 +106,19 @@ public class Formul extends View {
 
     public Tree getTree() {
         return tree;
+    }
+
+    public Listeners getListeners() {
+        return listeners;
+    }
+
+    public Result getResult(boolean backlight, boolean movable, boolean clear){
+        getWorker().setMove(movable);
+        Result result = getTree().getResult();
+        getTree().updateBacklight(backlight);
+        getMovePart().clearBlocks(clear);
+        getTree().clearBlocks(clear);
+        invalidate();
+        return result;
     }
 }

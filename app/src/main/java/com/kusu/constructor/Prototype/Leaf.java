@@ -11,6 +11,7 @@ import com.kusu.constructor.LeafType.Division;
 import com.kusu.constructor.LeafType.Nextable;
 import com.kusu.constructor.LeafType.Power;
 import com.kusu.constructor.Settings.Scale;
+import com.kusu.constructor.Utils.Result;
 import com.kusu.constructor.Utils.Utils;
 import com.kusu.constructor.View.Settings;
 
@@ -24,6 +25,7 @@ import java.util.List;
 public abstract class Leaf extends PaintableBlock {
     public Movable block = null;
     public List<Leaf> list = new ArrayList<>();
+    public boolean backlight = false;
 
     public static Leaf create(String symbols){
         switch (symbols){
@@ -93,7 +95,9 @@ public abstract class Leaf extends PaintableBlock {
         }
     }
 
-    protected abstract float getTextSize();
+    protected float getTextSize() {
+        return settings.getTextSize();
+    }
 
     protected boolean isOperation(String text) {
         if (text.equals("*"))
@@ -105,4 +109,23 @@ public abstract class Leaf extends PaintableBlock {
         return false;
     }
 
+    public void clear() {
+        block = null;
+        for(Leaf leaf : list)
+            if (leaf != null)
+                leaf.clear();
+    }
+
+    public void setBacklight(boolean backlight) {
+        this.backlight = backlight;
+        for(Leaf leaf : list)
+            if (leaf != null)
+                leaf.setBacklight(backlight);
+    }
+
+    public void updateResult(Result result) {
+        for(Leaf leaf : list)
+            if (leaf != null)
+                leaf.updateResult(result);
+    }
 }

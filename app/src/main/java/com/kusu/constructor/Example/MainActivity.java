@@ -14,11 +14,6 @@ public class MainActivity extends AppCompatActivity {
 
     Formul formul;
 
-    // включ/отключ единый размер блока
-    // центровка текста и маштабирование его
-    // задание размера текста в процентах от высоты
-    //
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,8 +22,6 @@ public class MainActivity extends AppCompatActivity {
         formul
                 .setBlocks(Default.getDefBlock())
                 .setRoot(Default.getDefRoot());
-
-
     }
 }
 

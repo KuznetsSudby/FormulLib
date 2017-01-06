@@ -1,11 +1,11 @@
 package com.kusu.constructor.LeafType;
 
 import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.graphics.Rect;
 
 import com.kusu.constructor.Prototype.Leaf;
 import com.kusu.constructor.Prototype.PaintableBlock;
+import com.kusu.constructor.Utils.Result;
 
 public class Changeable extends Leaf {
 
@@ -76,12 +76,8 @@ public class Changeable extends Leaf {
     @Override
     public  void drawTerritory(Canvas canvas, int deltaX, int startY) {
         rect = new Rect(deltaX, startY - getHeight() / 2, deltaX + getWidth(), startY + getHeight() / 2);
+        //// TODO: 07.01.2017 проверка на подсветку
         drawDrawableInCanvas(canvas, getDrawable(getType()), rect);
-    }
-
-    @Override
-    protected float getTextSize() {
-        return settings.getTextSize();
     }
 
     @Override
@@ -103,5 +99,18 @@ public class Changeable extends Leaf {
             return true;
         }
         return super.inLeaf(movable, targetX, targetY);
+    }
+
+    @Override
+    public void updateResult(Result result) {
+        if (block == null)
+            result.addUnselected();
+        else{
+            if (block.symbols.equals(symbols))
+                result.addGood();
+            else
+                result.addBad();
+        }
+        super.updateResult(result);
     }
 }

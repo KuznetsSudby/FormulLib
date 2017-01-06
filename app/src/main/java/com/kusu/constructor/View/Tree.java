@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import com.kusu.constructor.Example.Default;
 import com.kusu.constructor.Formul;
 import com.kusu.constructor.Prototype.Leaf;
+import com.kusu.constructor.Utils.Result;
 
 /**
  * Created by mikhail.chvarkou on 1/5/2017.
@@ -49,5 +50,21 @@ public class Tree {
 
 	public void updateRootReferences() {
 		root.setTreeSettings(formul.getSettings());
+	}
+
+	public Result getResult() {
+		Result result = new Result();
+		root.updateResult(result);
+		return result;
+	}
+
+	public void clearBlocks(boolean clear) {
+		if (clear){
+			root.clear();
+		}
+	}
+
+	public void updateBacklight(boolean backlight) {
+		root.setBacklight(backlight);
 	}
 }

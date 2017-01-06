@@ -56,11 +56,6 @@ public class Division extends Leaf {
 	}
 
 	@Override
-	protected float getTextSize() {
-		return settings.getTextSize();
-	}
-
-	@Override
 	public int getWidthToEnd() {
 		if (list.size() > 2) {
 			return getWidth() + list.get(2).getWidthToEnd();

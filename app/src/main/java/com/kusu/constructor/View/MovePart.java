@@ -158,4 +158,11 @@ public class MovePart {
         field += formul.getSettings().getValues().getMovableDivider();
         return field / (formul.getSettings().getValues().getMovableDivider() + block);
     }
+
+    public void clearBlocks(boolean clear) {
+        if (clear){
+            for (Movable movable : blocks)
+                movable.back();
+        }
+    }
 }

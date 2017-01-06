@@ -18,11 +18,15 @@ public class TouchWorker extends GestureDetector.SimpleOnGestureListener{
     Movable movable;
     Formul formul;
 
+    boolean move = true;
+
     public TouchWorker(Formul formul) {
         this.formul = formul;
     }
 
     public boolean onTouchEvent(MotionEvent event) {
+        if (!isMove())
+            return true;
         int action = event.getAction();
         targetX = (int) event.getX();
         targetY = (int) event.getY();
@@ -64,6 +68,19 @@ public class TouchWorker extends GestureDetector.SimpleOnGestureListener{
     }
 
     public void clear() {
+        if (movable != null)
+            movable.back();
         movable = null;
+    }
+
+    public void setMove(boolean move){
+        this.move = move;
+        if (!move){
+            clear();
+        }
+    }
+
+    public boolean isMove(){
+        return move;
     }
 }
