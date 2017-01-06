@@ -31,6 +31,8 @@ public class Movable extends Leaf {
 
     @Override
     public int getHeight() {
+        if (isMovable())
+            return settings.getMovableValue(settings.getValues().getBlock());
         return settings.getValue(settings.getValues().getBlock());
     }
 
@@ -41,6 +43,8 @@ public class Movable extends Leaf {
 
     @Override
     public int getWidth() {
+        if (isMovable())
+            return settings.getMovableValue(settings.getValues().getwBlock());
         return settings.getValue(settings.getValues().getwBlock());
     }
 
@@ -62,6 +66,13 @@ public class Movable extends Leaf {
 
     @Override
     protected void drawNext(Canvas canvas, int deltaX, int startY) {
+    }
+
+    @Override
+    protected float getTextSize() {
+        if (isMovable())
+            return settings.getMovableTextSize();
+        return settings.getTextSize();
     }
 
     @Override
@@ -96,5 +107,15 @@ public class Movable extends Leaf {
         return visibility == VISIBLE;
     }
 
+    public boolean isMovable() {
+        return visibility == MOVABLE;
+    }
 
+    public int getNotMovableHeight(){
+        return settings.getValue(settings.getValues().getBlock());
+    }
+
+    public int getNotMovableWidth(){
+        return settings.getValue(settings.getValues().getwBlock());
+    }
 }

@@ -56,6 +56,10 @@ public class Settings {
 		return scale.getScaledValue(wBlock);
 	}
 
+	public int getMovableValue(int wBlock) {
+		return scale.getMovableScaledValue(wBlock);
+	}
+
 	public float getTextPercent() {
 		return values.getTextPercent();
 	}
@@ -74,6 +78,10 @@ public class Settings {
 
 	public float getTextSize() {
 		return getTextPercent() * scale.getScaledValue(values.getBlock());
+	}
+
+	public float getMovableTextSize() {
+		return getTextPercent() * scale.getMovableScaledValue(values.getBlock());
 	}
 
 	public Drawables getDrawables() {

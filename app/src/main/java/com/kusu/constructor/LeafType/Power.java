@@ -55,6 +55,11 @@ public class Power extends Leaf {
     }
 
     @Override
+    protected float getTextSize() {
+        return settings.getTextSize();
+    }
+
+    @Override
     public int getWidthToEnd() {
         if (list.size() > 1)
             return getWidth() + list.get(1).getWidthToEnd();

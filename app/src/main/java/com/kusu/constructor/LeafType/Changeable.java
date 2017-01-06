@@ -80,6 +80,11 @@ public class Changeable extends Leaf {
     }
 
     @Override
+    protected float getTextSize() {
+        return settings.getTextSize();
+    }
+
+    @Override
     public Movable isClickInBlock(int targetX, int targetY) {
         if (isInRect(targetX, targetY)) {
             Movable b = block;

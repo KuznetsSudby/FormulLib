@@ -19,7 +19,7 @@ public class Default {
         blocks.add(new Movable(2, "B"));
         blocks.add(new Movable(3, "C"));
         blocks.add(new Movable(4, "D"));
-        blocks.add(new Movable(5, "E"));
+        blocks.add(new Movable(5, "*"));
         blocks.add(new Movable(6, "F"));
         blocks.add(new Movable(7, "J"));
         blocks.add(new Movable(8, "G"));

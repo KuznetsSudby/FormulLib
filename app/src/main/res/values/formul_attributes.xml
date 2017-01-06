@@ -4,6 +4,7 @@
         <attr name="min_scale" format="float" />
         <attr name="max_scale" format="float" />
         <attr name="autoscale" format="boolean" />
+        <attr name="movable_extrascale" format="float" />
 
         <!--size values-->
         <attr name="percent" format="float" />

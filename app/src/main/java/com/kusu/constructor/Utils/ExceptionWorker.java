@@ -36,6 +36,7 @@ public class ExceptionWorker {
     public static void validate(Context context, Scale scale) throws Exception {
         validate(scale.getMinScale(), 0.1f, 200f, "MinScale", context);
         validate(scale.getMaxScale(), 0.1f, 200f, "MaxScale", context);
+        validate(scale.getMovableExtraScale(), 0.1f, 20f, "MovableExtraScale", context);
         validate(scale.getMinScale(), scale.getMaxScale(), "MinScale", "MaxScale", context);
     }
 

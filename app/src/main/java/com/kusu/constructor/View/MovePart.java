@@ -50,16 +50,8 @@ public class MovePart {
     public void draw(Canvas canvas) {
         if (formul.getMovePart().getSize() == 0)
             return;
-        int height = formul.getSettings().getFormulHeight(canvas.getHeight());
-        Paint paint = new Paint();
-        paint.setColor(Color.RED);
-        paint.setStyle(Paint.Style.FILL);
-        canvas.drawRect(
-                formul.getSettings().getPadding(),
-                height + formul.getSettings().getPadding(),
-                canvas.getWidth() - formul.getSettings().getPadding(),
-                canvas.getHeight() - formul.getSettings().getPadding(), paint);
 
+        int height = formul.getSettings().getFormulHeight(canvas.getHeight());
         int hField = canvas.getHeight() - height - 2 * formul.getSettings().getPadding();
         int wField = canvas.getWidth() - 2 * formul.getSettings().getPadding();
 
@@ -68,14 +60,14 @@ public class MovePart {
                 hField,
                 wField,
                 1,
-                mov.getHeight(),
-                mov.getWidth());
+                mov.getNotMovableHeight(),
+                mov.getNotMovableWidth());
 
         float factor = getResultFactor(
                 hField,
                 wField,
-                formul.getSettings().getValue(mov.getHeight()),
-                formul.getSettings().getValue(mov.getWidth()),
+                formul.getSettings().getValue(mov.getNotMovableHeight()),
+                formul.getSettings().getValue(mov.getNotMovableWidth()),
                 lineCount);
 
         if (factor > 1)
@@ -108,22 +100,22 @@ public class MovePart {
     private void drawLineBlocks(Canvas canvas, int hField, int wField, int startIndex, int endIndex, float factor, int lineNum, int lineCount, int deltaH, int deltaW) {
         int divider = formul.getSettings().getValues().getMovableDivider();
         if (formul.getSettings().getValues().isGroupMovables()) {
-            deltaH += (hField - blocks.get(0).getHeight() * lineCount - divider * (lineCount - 1)) / 2 + lineNum * (blocks.get(0).getHeight() + divider);
-            deltaW += (wField - blocks.get(0).getWidth() * (endIndex - startIndex) - divider * (endIndex - startIndex - 1)) / 2;
+            deltaH += (hField - blocks.get(0).getNotMovableHeight() * lineCount - divider * (lineCount - 1)) / 2 + lineNum * (blocks.get(0).getNotMovableHeight() + divider);
+            deltaW += (wField - blocks.get(0).getNotMovableWidth() * (endIndex - startIndex) - divider * (endIndex - startIndex - 1)) / 2;
         } else {
             if (lineCount > 1)
-                deltaH += lineNum * blocks.get(0).getHeight() + (hField - lineCount * blocks.get(0).getHeight()) / (lineCount - 1) * lineNum;
+                deltaH += lineNum * blocks.get(0).getNotMovableHeight() + (hField - lineCount * blocks.get(0).getNotMovableHeight()) / (lineCount - 1) * lineNum;
             else
-                deltaH += (hField - blocks.get(0).getHeight()) / 2;
+                deltaH += (hField - blocks.get(0).getNotMovableHeight()) / 2;
             if (endIndex - startIndex > 1)
-                divider = (wField - blocks.get(0).getWidth() * (endIndex - startIndex)) / (endIndex - startIndex - 1);
+                divider = (wField - blocks.get(0).getNotMovableWidth() * (endIndex - startIndex)) / (endIndex - startIndex - 1);
             else {
-                deltaW += (wField - blocks.get(0).getWidth()) / 2;
+                deltaW += (wField - blocks.get(0).getNotMovableWidth()) / 2;
             }
         }
         for (int i = startIndex; i < endIndex; i++) {
             if (blocks.get(i).isVisible()) {
-                blocks.get(i).draw(canvas, deltaW + (i - startIndex) * (blocks.get(0).getWidth() + divider), deltaH);
+                blocks.get(i).draw(canvas, deltaW + (i - startIndex) * (blocks.get(0).getNotMovableWidth() + divider), deltaH);
             }
         }
     }

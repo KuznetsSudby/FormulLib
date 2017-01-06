@@ -16,8 +16,8 @@
     <color name="changeableBlock">#d6d6d6</color>
     <color name="changeableBlockBorder">#868686</color>
 
-    <color name="movableBlock">@color/changeableBlock</color>
-    <color name="movableBlockBorder">@color/changeableBlockBorder</color>
+    <color name="movableBlock">#aeb8e2</color>
+    <color name="movableBlockBorder">#5e6f9c</color>
 
     <color name="background">#fff</color>
     <color name="divisionLine">#000</color>

@@ -76,11 +76,11 @@ public abstract class Leaf extends PaintableBlock {
 
     public void drawCenterText(Canvas canvas, int centerX, int centerY, String text){
         if (isOperation(text)){
-            int txtSize = (int) settings.getTextSize() / 2;
+            int txtSize = (int) getTextSize() / 2;
             drawDrawableInCanvas(canvas, getDrawable(Utils.convertOperationSymbols(text)), new Rect(centerX - txtSize, centerY - txtSize, centerX + txtSize, centerY + txtSize));
         }else {
             Rect mTextBoundRect = new Rect();
-            Paint paint = getPaintText();
+            Paint paint = getPaintText(getTextSize());
             paint.getTextBounds(text, 0, text.length(), mTextBoundRect);
             float mTextWidth = paint.measureText(text);
             float mTextHeight = mTextBoundRect.height();
@@ -92,6 +92,8 @@ public abstract class Leaf extends PaintableBlock {
             );
         }
     }
+
+    protected abstract float getTextSize();
 
     protected boolean isOperation(String text) {
         if (text.equals("*"))

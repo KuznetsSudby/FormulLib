@@ -24,16 +24,6 @@ public class Tree {
 		if (root == null)
 			return;
 		int height = formul.getSettings().getFormulHeight(canvas.getHeight());
-
-		Paint paint = new Paint();
-		paint.setColor(Color.GREEN);
-		paint.setStyle(Paint.Style.FILL);
-		canvas.drawRect(
-				formul.getSettings().getPadding(),
-				formul.getSettings().getPadding(),
-				canvas.getWidth() - formul.getSettings().getPadding(),
-				height - formul.getSettings().getPadding(), paint);
-
 		formul.getSettings().changeScale(
 				canvas.getWidth(),
 				height, root.getWidthToEnd(),

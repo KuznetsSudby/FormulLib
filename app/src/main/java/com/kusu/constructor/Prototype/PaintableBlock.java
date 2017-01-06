@@ -56,13 +56,13 @@ public abstract class PaintableBlock implements DrawableBlock {
         return false;
     }
 
-    public Paint getPaintText() {
+    public Paint getPaintText(float size) {
         if (paint == null)
             paint = new Paint();
         paint.setColor(settings.getColors().getText());
         paint.setStyle(Paint.Style.FILL);
         paint.setFakeBoldText(true);
-        paint.setTextSize(settings.getTextSize());
+        paint.setTextSize(size);
         return paint;
     }
 

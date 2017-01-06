@@ -73,6 +73,11 @@ public class Nextable extends Leaf {
     }
 
     @Override
+    protected float getTextSize() {
+        return settings.getTextSize();
+    }
+
+    @Override
     public void drawTerritory(Canvas canvas, int deltaX, int startY) {
         rect = new Rect(deltaX, startY - getHeight() / 2, deltaX + getWidth(), startY + getHeight() / 2);
         drawDrawableInCanvas(canvas, getDrawable(getType()), rect);

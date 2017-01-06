@@ -14,10 +14,12 @@ public class Scale {
 
     private static float defMaxScale = 10.0f;
     private static float defMinScale = 0.1f;
+    private static float defMovableExtraScale = 1.5f;
     private static boolean defAuto = true;
 
     private float maxScale = defMaxScale;
     private float minScale = defMinScale;
+    private float movableExtraScale = defMovableExtraScale;
     private float scale = 1.0f;
     private boolean auto = defAuto;
 
@@ -26,6 +28,7 @@ public class Scale {
             return;
         maxScale = attrs.getFloat(R.styleable.fs_max_scale, defMaxScale);
         minScale = attrs.getFloat(R.styleable.fs_min_scale, defMinScale);
+        movableExtraScale = attrs.getFloat(R.styleable.fs_movable_extrascale, defMovableExtraScale);
         auto = attrs.getBoolean(R.styleable.fs_autoscale, defAuto);
     }
 
@@ -42,6 +45,10 @@ public class Scale {
 
     public int getScaledValue(int value) {
         return Math.round(scale * value);
+    }
+
+    public int getMovableScaledValue(int value) {
+        return Math.round(movableExtraScale * scale * value);
     }
 
     public boolean isAuto() {
@@ -66,5 +73,21 @@ public class Scale {
 
     public void setMaxScale(float maxScale) {
         this.maxScale = maxScale;
+    }
+
+    public float getMovableExtraScale() {
+        return movableExtraScale;
+    }
+
+    public void setMovableExtraScale(float movableExtraScale) {
+        this.movableExtraScale = movableExtraScale;
+    }
+
+    public float getScale() {
+        return scale;
+    }
+
+    public void setScale(float scale) {
+        this.scale = scale;
     }
 }

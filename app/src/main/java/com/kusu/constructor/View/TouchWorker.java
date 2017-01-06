@@ -60,7 +60,7 @@ public class TouchWorker extends GestureDetector.SimpleOnGestureListener{
 
     public void draw(Canvas canvas) {
         if (movable != null)
-            movable.draw(canvas, targetX - movable.getHeight()/2, targetY - movable.getHeight()/2);
+            movable.draw(canvas, targetX - movable.getWidth()/2, targetY - movable.getHeight()/2);
     }
 
     public void clear() {

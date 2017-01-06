@@ -27,11 +27,33 @@ public class DrawThread {
 
 	public void onDraw(Canvas canvas) {
 		drawBackground(canvas);
+		//debugDraw(canvas);
 		formul.getTree().draw(canvas);
 		formul.getMovePart().draw(canvas);
 		formul.getWorker().draw(canvas);
 	}
 
+	private void debugDraw(Canvas canvas) {
+		int height = formul.getSettings().getFormulHeight(canvas.getHeight());
+		Paint paint = new Paint();
+		paint.setColor(Color.RED);
+		paint.setStyle(Paint.Style.FILL);
+		canvas.drawRect(
+				formul.getSettings().getPadding(),
+				height + formul.getSettings().getPadding(),
+				canvas.getWidth() - formul.getSettings().getPadding(),
+				canvas.getHeight() - formul.getSettings().getPadding(), paint);
+
+		paint = new Paint();
+		paint.setColor(Color.GREEN);
+		paint.setStyle(Paint.Style.FILL);
+		canvas.drawRect(
+				formul.getSettings().getPadding(),
+				formul.getSettings().getPadding(),
+				canvas.getWidth() - formul.getSettings().getPadding(),
+				height - formul.getSettings().getPadding(), paint);
+
+	}
 
 
 	protected void drawBackground(Canvas canvas) {
