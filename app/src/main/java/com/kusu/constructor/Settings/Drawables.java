@@ -19,6 +19,7 @@ public class Drawables {
 	private static @DrawableRes int defIDChangeableBlock = R.drawable.bg_changeable;
 	private static @DrawableRes int defIDGoodBlock = R.drawable.bg_good;
 	private static @DrawableRes int defIDBadBlock = R.drawable.bg_bad;
+	private static @DrawableRes int defIDUnselectedBlock = R.drawable.bg_unselected;
 
 	private static @DrawableRes int defIDPlusBlock = R.drawable.ic_plus;
 	private static @DrawableRes int defIDMinusBlock = R.drawable.ic_minus;
@@ -33,6 +34,7 @@ public class Drawables {
 	private Drawable plusBlock;
 	private Drawable minusBlock;
 	private Drawable multiplyBlock;
+	private Drawable unselectedBlock;
 
 	public Drawables(TypedArray attrs) {
 		if (attrs == null)
@@ -42,6 +44,7 @@ public class Drawables {
 		goodBlock = attrs.getDrawable(R.styleable.fs_good_block);
 		movableBlock = attrs.getDrawable(R.styleable.fs_movable_block);
 		changeableBlock = attrs.getDrawable(R.styleable.fs_changeable_block);
+		unselectedBlock = attrs.getDrawable(R.styleable.fs_unselected_block);
 	}
 
 	public Drawables initDrawables(Context context){
@@ -55,6 +58,8 @@ public class Drawables {
 			goodBlock = context.getResources().getDrawable(defIDGoodBlock);
 		if (badBlock == null)
 			badBlock = context.getResources().getDrawable(defIDBadBlock);
+		if (unselectedBlock == null)
+			unselectedBlock = context.getResources().getDrawable(defIDUnselectedBlock);
 
 		if (plusBlock == null)
 			plusBlock = context.getResources().getDrawable(defIDPlusBlock);
@@ -128,5 +133,13 @@ public class Drawables {
 
 	public void setMultiplyBlock(Drawable multiplyBlock) {
 		this.multiplyBlock = multiplyBlock;
+	}
+
+	public Drawable getUnselectedBlock() {
+		return unselectedBlock;
+	}
+
+	public void setUnselectedBlock(Drawable unselectedBlock) {
+		this.unselectedBlock = unselectedBlock;
 	}
 }

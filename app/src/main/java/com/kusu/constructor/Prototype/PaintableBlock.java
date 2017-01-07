@@ -22,6 +22,7 @@ public abstract class PaintableBlock implements DrawableBlock {
     public final static int SYMBOL_MINUS = 7;
     public final static int SYMBOL_PLUS = 8;
     public final static int SYMBOL_MULTIPLY = 9;
+    public final static int SYMBOL_UNSELECTED = 10;
 
     public String symbols;
     public Rect rect;
@@ -89,6 +90,8 @@ public abstract class PaintableBlock implements DrawableBlock {
                 return settings.getDrawables().getPlusBlock();
             case SYMBOL_MINUS:
                 return settings.getDrawables().getMinusBlock();
+            case SYMBOL_UNSELECTED:
+                return settings.getDrawables().getUnselectedBlock();
         }
     }
 }

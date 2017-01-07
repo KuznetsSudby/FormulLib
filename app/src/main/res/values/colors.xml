@@ -19,6 +19,9 @@
     <color name="movableBlock">#aeb8e2</color>
     <color name="movableBlockBorder">#5e6f9c</color>
 
+    <color name="unselectedBlock">#c970e4</color>
+    <color name="unselectedBlockBorder">#571678</color>
+
     <color name="background">#fff</color>
     <color name="divisionLine">#000</color>
     <color name="textColor">#000</color>

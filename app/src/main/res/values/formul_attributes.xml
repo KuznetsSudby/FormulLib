@@ -33,5 +33,6 @@
         <attr name="plus_block" format="reference"/>
         <attr name="minus_block" format="reference"/>
         <attr name="multiply_block" format="reference"/>
+        <attr name="unselected_block" format="reference"/>
     </declare-styleable>
 </resources>

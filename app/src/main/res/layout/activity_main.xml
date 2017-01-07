@@ -1,13 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:fs="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/clear"
+            android:text="Очистить"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="4dp"
+            android:background="@color/changeableBlock"/>
+        <TextView
+            android:id="@+id/noMove"
+            android:text="Отключить\nдвижение"
+            android:gravity="center"
+            android:layout_marginLeft="1dp"
+            android:textSize="12sp"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:background="@color/changeableBlock"/>
+        <TextView
+            android:id="@+id/yesMove"
+            android:text="Включить\nдвижение"
+            android:gravity="center"
+            android:layout_marginLeft="1dp"
+            android:textSize="12sp"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:background="@color/changeableBlock"/>
+        <TextView
+            android:id="@+id/getResultAndBacklight"
+            android:text="Проверить и\nподсветить"
+            android:gravity="center"
+            android:layout_marginLeft="1dp"
+            android:textSize="12sp"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:background="@color/changeableBlock"/>
+        <TextView
+            android:id="@+id/clearBacklight"
+            android:gravity="center"
+            android:text="Убрать подсветку"
+            android:layout_marginLeft="1dp"
+            android:textSize="12sp"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:background="@color/changeableBlock"/>
+    </LinearLayout>
 
     <com.kusu.constructor.Formul
         android:id="@+id/formul"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-</RelativeLayout>
+</LinearLayout>

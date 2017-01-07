@@ -121,4 +121,20 @@ public class Formul extends View {
         invalidate();
         return result;
     }
+
+    public void clearBlocks(){
+        getMovePart().clearBlocks(true);
+        getTree().clearBlocks(true);
+        invalidate();
+    }
+
+    public void setMove(boolean movable){
+        getWorker().setMove(movable);
+        invalidate();
+    }
+
+    public void setBacklight(boolean backlight){
+        getTree().updateBacklight(backlight);
+        invalidate();
+    }
 }

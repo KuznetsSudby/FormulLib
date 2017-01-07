@@ -15,6 +15,13 @@ public class Changeable extends Leaf {
 
     @Override
     public int getType() {
+        if (backlight){
+            if (block == null)
+                return PaintableBlock.SYMBOL_UNSELECTED;
+            if (block.symbols.equals(symbols))
+                return PaintableBlock.SYMBOL_MOVABLE_GOOD;
+            return PaintableBlock.SYMBOL_MOVABLE_BAD;
+        }
         return PaintableBlock.SYMBOL_CHANGABLE;
     }
 
@@ -76,7 +83,6 @@ public class Changeable extends Leaf {
     @Override
     public  void drawTerritory(Canvas canvas, int deltaX, int startY) {
         rect = new Rect(deltaX, startY - getHeight() / 2, deltaX + getWidth(), startY + getHeight() / 2);
-        //// TODO: 07.01.2017 проверка на подсветку
         drawDrawableInCanvas(canvas, getDrawable(getType()), rect);
     }
 
