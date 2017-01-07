@@ -61,6 +61,7 @@ public class Tree {
 	public void clearBlocks(boolean clear) {
 		if (clear){
 			root.clear();
+			formul.getListeners().changeOccupancy();
 		}
 	}
 

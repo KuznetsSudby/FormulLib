@@ -5,6 +5,6 @@ package com.kusu.constructor.Listeners;
  */
 
 public interface OccupancyListener {
-    public void fullOccupancy();
-    public int changeOccupancy();
+    public void fullOccupancy(boolean full);
+    public void changeOccupancy(int fullCount, int nowCount);
 }

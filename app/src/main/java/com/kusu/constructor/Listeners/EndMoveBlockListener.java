@@ -7,6 +7,6 @@ import com.kusu.constructor.LeafType.Movable;
  */
 
 public interface EndMoveBlockListener {
-    public Movable endMove();
-    public Movable startMove();
+    public void endMove(Movable movable);
+    public void startMove(Movable movable);
 }
