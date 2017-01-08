@@ -20,12 +20,10 @@ public class Nextable extends Leaf {
 
     @Override
     public int getWidth() {
-      //  return settings.getValue(settings.getValues().getwBlock());
-        //// TODO: 08.01.2017 на основе длиннытекста
         if (isOperation(symbols)){
             return settings.getValue(settings.getValues().getBlock());
         }else {
-            float width = settings.getValue(settings.getValues().getBlock()) * (1 - settings.getTextPercent()) + getTextWidth(symbols);
+            float width = settings.getValue(settings.getValues().getBlock()) * (1 - settings.getTextPercent()) + getTextWidth(symbols, getTextSize());
             return (int) width;
         }
     }

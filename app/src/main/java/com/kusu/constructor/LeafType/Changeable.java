@@ -32,7 +32,12 @@ public class Changeable extends Leaf {
 
     @Override
     public int getWidth() {
-        return settings.getValue(settings.getValues().getwBlock());
+        int width = settings.getValue(settings.getValues().getwBlock());
+        if (settings.getScale().isAutoScaleWidth()){
+            int temp = (int) (settings.getValue(settings.getValues().getBlock()) * (1 - settings.getTextPercent()) + getTextWidth(settings.getValues().getBigString(), getTextSize()));
+            width = Math.max(temp, width);
+        }
+        return width;
     }
 
     @Override

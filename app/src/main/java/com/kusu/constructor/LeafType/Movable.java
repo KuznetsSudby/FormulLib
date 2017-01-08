@@ -19,6 +19,7 @@ public class Movable extends Leaf {
 
     public int id;
     int visibility = VISIBLE;
+    private float factor = 1;
 
     public Movable(int id, String symbols) {
         this.id = id;
@@ -31,9 +32,7 @@ public class Movable extends Leaf {
 
     @Override
     public int getHeight() {
-        if (isMovable())
-            return settings.getMovableValue(settings.getValues().getBlock());
-        return settings.getValue(settings.getValues().getBlock());
+        return getMovableHeight(isMovable());
     }
 
     @Override
@@ -43,9 +42,7 @@ public class Movable extends Leaf {
 
     @Override
     public int getWidth() {
-        if (isMovable())
-            return settings.getMovableValue(settings.getValues().getwBlock());
-        return settings.getValue(settings.getValues().getwBlock());
+        return getMovableWidth(isMovable());
     }
 
     @Override
@@ -61,7 +58,7 @@ public class Movable extends Leaf {
 
     @Override
     protected void drawText(Canvas canvas, int deltaX, int startY) {
-        drawCenterText(canvas, deltaX + getWidth()/2, startY + getHeight()/2, symbols);
+        drawCenterText(canvas, deltaX + getWidth() / 2, startY + getHeight() / 2, symbols);
     }
 
     @Override
@@ -71,8 +68,8 @@ public class Movable extends Leaf {
     @Override
     protected float getTextSize() {
         if (isMovable())
-            return settings.getMovableTextSize();
-        return settings.getTextSize();
+            return settings.getMovableTextSize() * factor;
+        return settings.getTextSize() * factor;
     }
 
     @Override
@@ -87,9 +84,9 @@ public class Movable extends Leaf {
 
     @Override
     public int[] getTopBottom(int[] size) {
-        size[1] = Math.min(size[1], size[0] - getHeight()/2);
-        size[2] = Math.max(size[2], size[0] + getHeight()/2);
-        if (list.size()>0) {
+        size[1] = Math.min(size[1], size[0] - getHeight() / 2);
+        size[2] = Math.max(size[2], size[0] + getHeight() / 2);
+        if (list.size() > 0) {
             size = list.get(0).getTopBottom(size);
         }
         return size;
@@ -111,11 +108,25 @@ public class Movable extends Leaf {
         return visibility == MOVABLE;
     }
 
-    public int getNotMovableHeight(){
-        return settings.getValue(settings.getValues().getBlock());
+    public int getMovableHeight(boolean move) {
+        if (move)
+            return (int) (settings.getMovableValue(settings.getValue(settings.getValues().getBlock())) * factor);
+        return (int) (settings.getValue(settings.getValues().getBlock()) * factor);
     }
 
-    public int getNotMovableWidth(){
-        return settings.getValue(settings.getValues().getwBlock());
+    public int getMovableWidth(boolean move) {
+        int width = settings.getValue(settings.getValues().getwBlock());
+        if (settings.getScale().isAutoScaleWidth()) {
+            int temp = (int) (settings.getValue(settings.getValues().getBlock()) * (1 - settings.getTextPercent())
+                    + getTextWidth(settings.getValues().getBigString(), move ? settings.getMovableTextSize() : settings.getTextSize()));
+            width = Math.max(temp, width);
+        }
+        if (move)
+            return (int) (settings.getMovableValue(width)*factor);
+        return (int) (width * factor);
+    }
+
+    public void setFactor(float factor) {
+        this.factor = factor;
     }
 }

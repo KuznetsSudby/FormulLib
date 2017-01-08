@@ -2,6 +2,7 @@ package com.kusu.constructor.Settings;
 
 import android.content.res.TypedArray;
 
+import com.kusu.constructor.Formul;
 import com.kusu.constructor.R;
 
 /**
@@ -15,7 +16,7 @@ public class SizeValues {
 	private static float defDivisionPaddingFactor = 3 / 8.0f;
 	private static float defPaddingFactor = 3;
 
-	private static float defMovableDividerFactor = 10;
+	private static float defMovableDividerFactor = 3;
 	private static boolean defGroupMovables = true;
 
 	private static boolean defPercentHeight = true;
@@ -34,6 +35,7 @@ public class SizeValues {
 	private float blockFactor = defBlockFactor;
 	private float divisionFactor = defDivisionFactor;
 	private float divisionPaddingFactor = defDivisionPaddingFactor;
+	private String bigString = "A";
 
 	public SizeValues(TypedArray attrs) {
 		if (attrs == null)
@@ -160,5 +162,13 @@ public class SizeValues {
 
 	public void setGroupMovables(boolean groupMovables) {
 		this.groupMovables = groupMovables;
+	}
+
+	public String getBigString() {
+		return bigString;
+	}
+
+	public void setBigString(String bigString) {
+		this.bigString = bigString;
 	}
 }

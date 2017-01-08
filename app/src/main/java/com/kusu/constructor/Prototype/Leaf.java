@@ -95,9 +95,9 @@ public abstract class Leaf extends PaintableBlock {
         }
     }
 
-    protected float getTextWidth(String text){
+    protected float getTextWidth(String text, float size){
         Rect mTextBoundRect = new Rect();
-        Paint paint = getPaintText(getTextSize());
+        Paint paint = getPaintText(size);
         paint.getTextBounds(text, 0, text.length(), mTextBoundRect);
         return paint.measureText(text);
     }

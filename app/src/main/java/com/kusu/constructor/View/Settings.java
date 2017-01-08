@@ -3,6 +3,8 @@ package com.kusu.constructor.View;
 import android.content.Context;
 import android.content.res.TypedArray;
 
+import com.kusu.constructor.Formul;
+import com.kusu.constructor.Prototype.PaintableBlock;
 import com.kusu.constructor.Settings.Colors;
 import com.kusu.constructor.Settings.Drawables;
 import com.kusu.constructor.Settings.Scale;
@@ -81,7 +83,7 @@ public class Settings {
 	}
 
 	public float getMovableTextSize() {
-		return getTextPercent() * scale.getMovableScaledValue(values.getBlock());
+		return getTextPercent() * scale.getMovableScaledValue(getValue(values.getBlock()));
 	}
 
 	public Drawables getDrawables() {
@@ -90,5 +92,11 @@ public class Settings {
 
 	public void setDrawables(Drawables drawables) {
 		this.drawables = drawables;
+	}
+
+	public void changeWidth(Formul formul) {
+		if (scale.isAutoScaleWidth()){
+			values.setBigString(formul.getMovePart().getBiggestString());
+		}
 	}
 }

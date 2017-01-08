@@ -1,9 +1,7 @@
 package com.kusu.constructor.Settings;
 
 import android.content.res.TypedArray;
-import android.util.AttributeSet;
 
-import com.kusu.constructor.Formul;
 import com.kusu.constructor.R;
 
 /**
@@ -11,19 +9,18 @@ import com.kusu.constructor.R;
  */
 
 public class Scale {
-
-    // TODO: 08.01.2017 autoWidthByText
-    
     private static float defMaxScale = 10.0f;
     private static float defMinScale = 0.1f;
     private static float defMovableExtraScale = 1.5f;
-    private static boolean defAuto = true;
+    private static boolean defAutoScale = true;
+    private static boolean defAutoScaleWidth = true;
 
     private float maxScale = defMaxScale;
     private float minScale = defMinScale;
     private float movableExtraScale = defMovableExtraScale;
-    private float scale = 1.0f;
-    private boolean auto = defAuto;
+    private float scale = -0.1f;
+    private boolean autoScale = defAutoScale;
+    private boolean autoScaleWidth = defAutoScaleWidth;
 
     public Scale(TypedArray attrs) {
         if (attrs == null)
@@ -31,7 +28,8 @@ public class Scale {
         maxScale = attrs.getFloat(R.styleable.fs_max_scale, defMaxScale);
         minScale = attrs.getFloat(R.styleable.fs_min_scale, defMinScale);
         movableExtraScale = attrs.getFloat(R.styleable.fs_movable_extrascale, defMovableExtraScale);
-        auto = attrs.getBoolean(R.styleable.fs_autoscale, defAuto);
+        autoScale = attrs.getBoolean(R.styleable.fs_autoscale, defAutoScale);
+        autoScaleWidth = attrs.getBoolean(R.styleable.fs_autoscale_width, defAutoScaleWidth);
     }
 
     public void changeScale(int wView, int hView, int wBlock, int hBlock, int padding) {
@@ -50,15 +48,15 @@ public class Scale {
     }
 
     public int getMovableScaledValue(int value) {
-        return Math.round(movableExtraScale * scale * value);
+        return Math.round(movableExtraScale * value);
     }
 
-    public boolean isAuto() {
-        return auto;
+    public boolean isAutoScale() {
+        return autoScale;
     }
 
-    public void setAuto(boolean auto) {
-        this.auto = auto;
+    public void setAutoScale(boolean autoScale) {
+        this.autoScale = autoScale;
     }
 
     public float getMinScale() {
@@ -91,5 +89,13 @@ public class Scale {
 
     public void setScale(float scale) {
         this.scale = scale;
+    }
+
+    public boolean isAutoScaleWidth() {
+        return autoScaleWidth;
+    }
+
+    public void setAutoScaleWidth(boolean autoScaleWidth) {
+        this.autoScaleWidth = autoScaleWidth;
     }
 }

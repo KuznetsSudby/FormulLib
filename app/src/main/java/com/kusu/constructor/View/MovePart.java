@@ -56,22 +56,25 @@ public class MovePart {
         int wField = canvas.getWidth() - 2 * formul.getSettings().getPadding();
 
         Movable mov = blocks.get(0);
+        mov.setFactor(1);
+
         int lineCount = getLineCount(
                 hField,
                 wField,
                 1,
-                mov.getNotMovableHeight(),
-                mov.getNotMovableWidth());
+                mov.getMovableHeight(false),
+                mov.getMovableWidth(false));
 
         float factor = getResultFactor(
                 hField,
+                mov.getMovableHeight(false),
                 wField,
-                formul.getSettings().getValue(mov.getNotMovableHeight()),
-                formul.getSettings().getValue(mov.getNotMovableWidth()),
+                mov.getMovableWidth(false),
                 lineCount);
 
         if (factor > 1)
             factor = 1;
+        blocks.get(0).setFactor(factor);
 
         int countInLine = Utils.roundMore(getSize() * 1.0f / lineCount);
         int startIndex = 0;
@@ -98,24 +101,27 @@ public class MovePart {
     }
 
     private void drawLineBlocks(Canvas canvas, int hField, int wField, int startIndex, int endIndex, float factor, int lineNum, int lineCount, int deltaH, int deltaW) {
+        int hBlock = blocks.get(0).getMovableHeight(false);
+        int wBlock = blocks.get(0).getMovableWidth(false);
         int divider = formul.getSettings().getValues().getMovableDivider();
         if (formul.getSettings().getValues().isGroupMovables()) {
-            deltaH += (hField - blocks.get(0).getNotMovableHeight() * lineCount - divider * (lineCount - 1)) / 2 + lineNum * (blocks.get(0).getNotMovableHeight() + divider);
-            deltaW += (wField - blocks.get(0).getNotMovableWidth() * (endIndex - startIndex) - divider * (endIndex - startIndex - 1)) / 2;
+            deltaH += (hField - hBlock * lineCount - divider * (lineCount - 1)) / 2 + lineNum * (hBlock + divider);
+            deltaW += (wField - wBlock * (endIndex - startIndex) - divider * (endIndex - startIndex - 1)) / 2;
         } else {
             if (lineCount > 1)
-                deltaH += lineNum * blocks.get(0).getNotMovableHeight() + (hField - lineCount * blocks.get(0).getNotMovableHeight()) / (lineCount - 1) * lineNum;
+                deltaH += lineNum * hBlock + (hField - lineCount * hBlock) / (lineCount - 1) * lineNum;
             else
-                deltaH += (hField - blocks.get(0).getNotMovableHeight()) / 2;
+                deltaH += (hField - hBlock) / 2;
             if (endIndex - startIndex > 1)
-                divider = (wField - blocks.get(0).getNotMovableWidth() * (endIndex - startIndex)) / (endIndex - startIndex - 1);
+                divider = (wField - wBlock * (endIndex - startIndex)) / (endIndex - startIndex - 1);
             else {
-                deltaW += (wField - blocks.get(0).getNotMovableWidth()) / 2;
+                deltaW += (wField - wBlock) / 2;
             }
         }
         for (int i = startIndex; i < endIndex; i++) {
             if (blocks.get(i).isVisible()) {
-                blocks.get(i).draw(canvas, deltaW + (i - startIndex) * (blocks.get(0).getNotMovableWidth() + divider), deltaH);
+                blocks.get(i).setFactor(factor);
+                blocks.get(i).draw(canvas, deltaW + (i - startIndex) * (blocks.get(0).getMovableWidth(false) + divider), deltaH);
             }
         }
     }
@@ -150,7 +156,8 @@ public class MovePart {
     }
 
     private float getFactor(int field, int block, int count) {
-        float size = block * count + formul.getSettings().getValues().getMovableDivider() * (count - 1);
+        float size = block * count;
+        field -= formul.getSettings().getValues().getMovableDivider() * (count - 1);
         return field / size;
     }
 
@@ -164,5 +171,14 @@ public class MovePart {
             for (Movable movable : blocks)
                 movable.back();
         }
+    }
+
+    public String getBiggestString() {
+        String temp = "A";
+        for (Movable movable : blocks){
+            if (movable.symbols.length() > temp.length())
+                temp = movable.symbols.toUpperCase();
+        }
+        return temp;
     }
 }

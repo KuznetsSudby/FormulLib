@@ -27,7 +27,7 @@ public class DrawThread {
 
 	public void onDraw(Canvas canvas) {
 		drawBackground(canvas);
-		//debugDraw(canvas);
+//		debugDraw(canvas);
 		formul.getTree().draw(canvas);
 		formul.getMovePart().draw(canvas);
 		formul.getWorker().draw(canvas);

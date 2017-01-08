@@ -16,7 +16,7 @@ public class Default {
     public static ArrayList<Movable> getDefBlock() {
         ArrayList<Movable> blocks = new ArrayList<>();
         blocks.add(new Movable(0, "H1"));
-        blocks.add(new Movable(1, "A12"));
+        blocks.add(new Movable(1, "A12345"));
         blocks.add(new Movable(2, "B"));
         blocks.add(new Movable(3, "C"));
         blocks.add(new Movable(4, "D"));
