@@ -12,6 +12,8 @@ import com.kusu.constructor.R;
 
 public class Scale {
 
+    // TODO: 08.01.2017 autoWidthByText
+    
     private static float defMaxScale = 10.0f;
     private static float defMinScale = 0.1f;
     private static float defMovableExtraScale = 1.5f;
@@ -35,7 +37,7 @@ public class Scale {
     public void changeScale(int wView, int hView, int wBlock, int hBlock, int padding) {
         wView -= padding * 2;
         hView -= padding * 2;
-        float newDelta = Math.min(wView / wBlock, hView / hBlock);
+        float newDelta = Math.min(wView * 1.0f / wBlock, hView * 1.0f / hBlock);
         scale *= newDelta;
         if (scale > maxScale)
             scale = maxScale;

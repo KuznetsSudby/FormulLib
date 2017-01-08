@@ -58,7 +58,7 @@
         <TextView
             android:id="@+id/clearBacklight"
             android:gravity="center"
-            android:text="Убрать подсветку"
+            android:text="Убрать\nподсветку"
             android:layout_marginLeft="1dp"
             android:textSize="12sp"
             android:textColor="@android:color/black"

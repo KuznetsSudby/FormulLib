@@ -12,10 +12,11 @@ import java.util.HashMap;
 
 public class Default {
     //todo написать парсеры;
+    //todo cкрывать знаки умножить
     public static ArrayList<Movable> getDefBlock() {
         ArrayList<Movable> blocks = new ArrayList<>();
-        blocks.add(new Movable(0, "H"));
-        blocks.add(new Movable(1, "A"));
+        blocks.add(new Movable(0, "H1"));
+        blocks.add(new Movable(1, "A12"));
         blocks.add(new Movable(2, "B"));
         blocks.add(new Movable(3, "C"));
         blocks.add(new Movable(4, "D"));
@@ -28,7 +29,7 @@ public class Default {
     }
 
     public static Leaf getDefRoot() {
-        Leaf root = Leaf.create("H", true);
+        Leaf root = Leaf.create("H12", true);
         Leaf leaf = Leaf.create("*");
         root.list.add(leaf);
         leaf.list.add(Leaf.create("/"));
@@ -41,7 +42,7 @@ public class Default {
         Leaf leaf2 = leaf.list.get(2).list.get(0);
         leaf2.list.add(Leaf.create("^"));
         leaf2 = leaf2.list.get(0);
-        leaf2.list.add(Leaf.create("F"));
+        leaf2.list.add(Leaf.create("F123312312"));
 
         leaf2 = leaf.list.get(1);
         leaf2.list.add(Leaf.create("^"));

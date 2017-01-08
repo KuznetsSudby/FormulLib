@@ -26,23 +26,18 @@ import java.util.HashMap;
 
 public class Formul extends View {
 
-    private DrawThread drawThread;
-    private MovePart part;
-    private Tree tree;
+    private DrawThread drawThread = new DrawThread(this);
+    private MovePart part= new MovePart(this);
+    private Tree tree = new Tree(this);
     private TouchWorker worker = new TouchWorker(this);
-    private Settings settings;
-    private Listeners listeners;
+    private Settings settings = new Settings(null, this.getContext());
+    private Listeners listeners = new Listeners(this);
 
     private void init(Context context, AttributeSet attrs) throws Exception {
-        if (attrs == null)
-            settings = new Settings(null, context);
-        else {
+        if (attrs != null){
             TypedArray pianoAttrs = context.obtainStyledAttributes(attrs, R.styleable.fs);
             settings = new Settings(pianoAttrs, context);
         }
-        part = new MovePart(this);
-        tree = new Tree(this);
-        drawThread = new DrawThread(this);
         tree.updateRootReferences();
         part.updateBlockReferences(settings);
     }
