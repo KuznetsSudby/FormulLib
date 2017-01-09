@@ -33,6 +33,9 @@
         <attr name="movable_block" format="reference"/>
         <attr name="plus_block" format="reference"/>
         <attr name="minus_block" format="reference"/>
+        <attr name="equally_block" format="reference"/>
+        <attr name="bkt_left_block" format="reference"/>
+        <attr name="bkt_right_block" format="reference"/>
         <attr name="multiply_block" format="reference"/>
         <attr name="unselected_block" format="reference"/>
     </declare-styleable>

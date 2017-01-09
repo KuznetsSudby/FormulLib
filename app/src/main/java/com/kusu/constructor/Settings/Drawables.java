@@ -24,17 +24,23 @@ public class Drawables {
 	private static @DrawableRes int defIDPlusBlock = R.drawable.ic_plus;
 	private static @DrawableRes int defIDMinusBlock = R.drawable.ic_minus;
 	private static @DrawableRes int defIDMultiplyBlock = R.drawable.ic_mult;
+	private static @DrawableRes int defIDEquallyBlock = R.drawable.ic_equally;
+	private static @DrawableRes int defIDBktLeftBlock = R.drawable.ic_bkt_left;
+	private static @DrawableRes int defIDBktRightBlock = R.drawable.ic_bkt_right;
 
 	private Drawable defaultBlock;
 	private Drawable movableBlock;
 	private Drawable changeableBlock;
 	private Drawable goodBlock;
 	private Drawable badBlock;
+	private Drawable unselectedBlock;
 
 	private Drawable plusBlock;
 	private Drawable minusBlock;
+	private Drawable equallyBlock;
+	private Drawable bktLeftBlock;
+	private Drawable bktRightBlock;
 	private Drawable multiplyBlock;
-	private Drawable unselectedBlock;
 
 	public Drawables(TypedArray attrs) {
 		if (attrs == null)
@@ -65,6 +71,12 @@ public class Drawables {
 			plusBlock = context.getResources().getDrawable(defIDPlusBlock);
 		if (minusBlock == null)
 			minusBlock = context.getResources().getDrawable(defIDMinusBlock);
+		if (equallyBlock == null)
+			equallyBlock = context.getResources().getDrawable(defIDEquallyBlock);
+		if (bktLeftBlock == null)
+			bktLeftBlock = context.getResources().getDrawable(defIDBktLeftBlock);
+		if (bktRightBlock == null)
+			bktRightBlock = context.getResources().getDrawable(defIDBktRightBlock);
 		if (multiplyBlock == null)
 			multiplyBlock = context.getResources().getDrawable(defIDMultiplyBlock);
 
@@ -141,5 +153,29 @@ public class Drawables {
 
 	public void setUnselectedBlock(Drawable unselectedBlock) {
 		this.unselectedBlock = unselectedBlock;
+	}
+
+	public Drawable getBktRightBlock() {
+		return bktRightBlock;
+	}
+
+	public void setBktRightBlock(Drawable bktRightBlock) {
+		this.bktRightBlock = bktRightBlock;
+	}
+
+	public Drawable getBktLeftBlock() {
+		return bktLeftBlock;
+	}
+
+	public void setBktLeftBlock(Drawable bktLeftBlock) {
+		this.bktLeftBlock = bktLeftBlock;
+	}
+
+	public Drawable getEquallyBlock() {
+		return equallyBlock;
+	}
+
+	public void setEquallyBlock(Drawable equallyBlock) {
+		this.equallyBlock = equallyBlock;
 	}
 }

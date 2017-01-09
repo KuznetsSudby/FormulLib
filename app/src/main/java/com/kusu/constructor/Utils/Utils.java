@@ -15,6 +15,12 @@ public class Utils {
 				return PaintableBlock.SYMBOL_MINUS;
 			case "*":
 				return PaintableBlock.SYMBOL_MULTIPLY;
+			case "=":
+				return PaintableBlock.SYMBOL_EQUALLY;
+			case "(":
+				return PaintableBlock.SYMBOL_BKT_LEFT;
+			case ")":
+				return PaintableBlock.SYMBOL_BKT_RIGHT;
 		}
 		return -1;
 	}
