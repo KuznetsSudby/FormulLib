@@ -15,6 +15,7 @@ public class SizeValues {
 	private static float defDivisionFactor = 0.2f;
 	private static float defDivisionPaddingFactor = 3 / 8.0f;
 	private static float defPaddingFactor = 3;
+	private static float defCheckSize = 0.8f;
 
 	private static float defMovableDividerFactor = 3;
 	private static boolean defGroupMovables = true;
@@ -35,6 +36,9 @@ public class SizeValues {
 	private float blockFactor = defBlockFactor;
 	private float divisionFactor = defDivisionFactor;
 	private float divisionPaddingFactor = defDivisionPaddingFactor;
+
+	private float checkSize = defCheckSize;
+
 	private String bigString = "A";
 
 	public SizeValues(TypedArray attrs) {
@@ -51,6 +55,7 @@ public class SizeValues {
 		blockFactor = attrs.getFloat(R.styleable.fs_block_factor, defBlockFactor);
 		divisionFactor = attrs.getFloat(R.styleable.fs_division_factor, defDivisionFactor);
 		divisionPaddingFactor = attrs.getFloat(R.styleable.fs_division_padding_factor, defDivisionPaddingFactor);
+		checkSize = attrs.getFloat(R.styleable.fs_check_size, defCheckSize);
 	}
 
 	public int getFormulHeight(int h) {
@@ -170,5 +175,13 @@ public class SizeValues {
 
 	public void setBigString(String bigString) {
 		this.bigString = bigString;
+	}
+
+	public float getCheckSize() {
+		return checkSize;
+	}
+
+	public void setCheckSize(float checkSize) {
+		this.checkSize = checkSize;
 	}
 }

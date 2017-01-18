@@ -20,9 +20,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         formul = (Formul) findViewById(R.id.formul);
-        formul
-                .setBlocks(Default.getDefBlock())
-                .setRoot(Default.getDefRoot());
+        try {
+            formul
+                    .setBlocks(Default.getDefBlock())
+                    .setRoot(Default.getDefTree(this));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         findViewById(R.id.clear).setOnClickListener(this);
         findViewById(R.id.getResultAndBacklight).setOnClickListener(this);
@@ -38,10 +42,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 formul.clearBlocks();
                 break;
             case R.id.getResultAndBacklight:
-                formul.getResult(true, false, false);
+                formul.getResult(true, false, false, true);
                 break;
             case R.id.clearBacklight:
                 formul.setBacklight(false);
+                formul.clearCheck();
                 break;
             case R.id.noMove:
                 formul.setMove(false);

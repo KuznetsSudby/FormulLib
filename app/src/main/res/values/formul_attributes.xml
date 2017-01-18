@@ -19,6 +19,7 @@
         <attr name="division_padding_factor" format="float" />
         <attr name="movable_divider_factor" format="float" />
         <attr name="group_movables" format="boolean"/>
+        <attr name="check_size" format="boolean"/>
 
         <!--colors-->
         <attr name="background_color" format="color" />

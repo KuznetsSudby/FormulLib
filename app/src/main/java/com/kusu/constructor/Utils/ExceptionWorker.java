@@ -30,6 +30,7 @@ public class ExceptionWorker {
         validate(values.getBlock(), 10, 1000, "Block", context);
         validate(values.getHeight(), 1, Integer.MAX_VALUE, "Block", context);
         validate(values.getPadding(), 0, Integer.MAX_VALUE, "Padding", context);
+        validate(values.getCheckSize(), 0.1f, 1.0f, "CheckSize", context);
     }
 
 

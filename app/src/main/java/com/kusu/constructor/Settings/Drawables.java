@@ -20,6 +20,8 @@ public class Drawables {
 	private static @DrawableRes int defIDGoodBlock = R.drawable.bg_good;
 	private static @DrawableRes int defIDBadBlock = R.drawable.bg_bad;
 	private static @DrawableRes int defIDUnselectedBlock = R.drawable.bg_unselected;
+	private static @DrawableRes int defIDCheckBad = R.drawable.ic_check_circle_bad;
+	private static @DrawableRes int defIDCheckGood = R.drawable.ic_check_circle_good;
 
 	private static @DrawableRes int defIDPlusBlock = R.drawable.ic_plus;
 	private static @DrawableRes int defIDMinusBlock = R.drawable.ic_minus;
@@ -34,6 +36,8 @@ public class Drawables {
 	private Drawable goodBlock;
 	private Drawable badBlock;
 	private Drawable unselectedBlock;
+	private Drawable checkGood;
+	private Drawable checkBad;
 
 	private Drawable plusBlock;
 	private Drawable minusBlock;
@@ -66,6 +70,10 @@ public class Drawables {
 			badBlock = context.getResources().getDrawable(defIDBadBlock);
 		if (unselectedBlock == null)
 			unselectedBlock = context.getResources().getDrawable(defIDUnselectedBlock);
+		if (checkBad == null)
+			checkBad = context.getResources().getDrawable(defIDCheckBad);
+		if (checkGood == null)
+			checkGood = context.getResources().getDrawable(defIDCheckGood);
 
 		if (plusBlock == null)
 			plusBlock = context.getResources().getDrawable(defIDPlusBlock);
@@ -177,5 +185,21 @@ public class Drawables {
 
 	public void setEquallyBlock(Drawable equallyBlock) {
 		this.equallyBlock = equallyBlock;
+	}
+
+	public Drawable getCheckBad() {
+		return checkBad;
+	}
+
+	public void setCheckBad(Drawable checkBad) {
+		this.checkBad = checkBad;
+	}
+
+	public Drawable getCheckGood() {
+		return checkGood;
+	}
+
+	public void setCheckGood(Drawable checkGood) {
+		this.checkGood = checkGood;
 	}
 }

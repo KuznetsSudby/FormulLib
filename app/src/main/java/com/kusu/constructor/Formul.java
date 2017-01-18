@@ -25,16 +25,19 @@ import java.util.HashMap;
  */
 
 public class Formul extends View {
-
+    /*
+        по всей логике моих формул, можно будет подставлять + * -
+        но нельзя будет подставить /
+    */
     private DrawThread drawThread = new DrawThread(this);
-    private MovePart part= new MovePart(this);
+    private MovePart part = new MovePart(this);
     private Tree tree = new Tree(this);
     private TouchWorker worker = new TouchWorker(this);
     private Settings settings = new Settings(null, this.getContext());
     private Listeners listeners = new Listeners(this);
 
     private void init(Context context, AttributeSet attrs) throws Exception {
-        if (attrs != null){
+        if (attrs != null) {
             TypedArray pianoAttrs = context.obtainStyledAttributes(attrs, R.styleable.fs);
             settings = new Settings(pianoAttrs, context);
         }
@@ -107,29 +110,43 @@ public class Formul extends View {
         return listeners;
     }
 
-    public Result getResult(boolean backlight, boolean movable, boolean clear){
+    public Result getResult(boolean backlight, boolean movable, boolean clear, boolean check) {
         getWorker().setMove(movable);
         Result result = getTree().getResult();
         getTree().updateBacklight(backlight);
         getMovePart().clearBlocks(clear);
         getTree().clearBlocks(clear);
+        if (check) {
+            drawThread.setCheck(result.getGood_count() == result.getCount() ? DrawThread.CHECK_GOOD : DrawThread.CHECK_BAD);
+        } else
+            drawThread.setCheck(DrawThread.CHECK_NON);
         invalidate();
         return result;
     }
 
-    public void clearBlocks(){
+    public void clearBlocks() {
         getMovePart().clearBlocks(true);
         getTree().clearBlocks(true);
         invalidate();
     }
 
-    public void setMove(boolean movable){
+    public void setMove(boolean movable) {
         getWorker().setMove(movable);
         invalidate();
     }
 
-    public void setBacklight(boolean backlight){
+    public void setBacklight(boolean backlight) {
         getTree().updateBacklight(backlight);
+        invalidate();
+    }
+
+    public void clearCheck() {
+        drawThread.setCheck(DrawThread.CHECK_NON);
+        invalidate();
+    }
+
+    public void setCheck(int check) {
+        drawThread.setCheck(check);
         invalidate();
     }
 }

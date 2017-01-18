@@ -1,6 +1,9 @@
 package com.kusu.constructor.Example;
 
+import android.content.Context;
+
 import com.kusu.constructor.LeafType.Movable;
+import com.kusu.constructor.Parser.Parser;
 import com.kusu.constructor.Prototype.Leaf;
 
 import java.util.ArrayList;
@@ -66,5 +69,10 @@ public class Default {
         leaf.list.add(Leaf.create("D", true));
         leaf.list.add(Leaf.create("E", true));
         return root;
+    }
+
+    public static Leaf getDefTree(Context context) throws Exception {
+        Parser parser = new Parser();
+        return  parser.parseRoot(context, Parser.def);
     }
 }
