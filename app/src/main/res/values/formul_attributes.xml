@@ -38,6 +38,9 @@
         <attr name="bkt_left_block" format="reference"/>
         <attr name="bkt_right_block" format="reference"/>
         <attr name="multiply_block" format="reference"/>
+        <attr name="division_block" format="reference"/>
         <attr name="unselected_block" format="reference"/>
+        <attr name="check_bad" format="reference"/>
+        <attr name="check_good" format="reference"/>
     </declare-styleable>
 </resources>

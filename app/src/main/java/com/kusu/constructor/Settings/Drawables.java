@@ -57,6 +57,16 @@ public class Drawables {
 		movableBlock = attrs.getDrawable(R.styleable.fs_movable_block);
 		changeableBlock = attrs.getDrawable(R.styleable.fs_changeable_block);
 		unselectedBlock = attrs.getDrawable(R.styleable.fs_unselected_block);
+
+		checkGood  = attrs.getDrawable(R.styleable.fs_check_good);
+		checkBad  = attrs.getDrawable(R.styleable.fs_check_bad);
+		plusBlock  = attrs.getDrawable(R.styleable.fs_plus_block);
+		minusBlock  = attrs.getDrawable(R.styleable.fs_minus_block);
+		equallyBlock  = attrs.getDrawable(R.styleable.fs_equally_block);
+		bktLeftBlock  = attrs.getDrawable(R.styleable.fs_bkt_left_block);
+		bktRightBlock  = attrs.getDrawable(R.styleable.fs_bkt_right_block);
+		multiplyBlock  = attrs.getDrawable(R.styleable.fs_multiply_block);
+		divisionBlock  = attrs.getDrawable(R.styleable.fs_division_block);
 	}
 
 	public Drawables initDrawables(Context context){
