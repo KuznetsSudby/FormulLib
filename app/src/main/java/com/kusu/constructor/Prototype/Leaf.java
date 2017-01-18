@@ -115,6 +115,8 @@ public abstract class Leaf extends PaintableBlock {
             return true;
         if (text.equals("="))
             return true;
+        if (text.equals("/"))
+            return true;
         if (text.equals("("))
             return true;
         if (text.equals(")"))

@@ -89,6 +89,8 @@ public abstract class PaintableBlock implements DrawableBlock {
                 return settings.getDrawables().getMovableBlock();
             case SYMBOL_MULTIPLY:
                 return settings.getDrawables().getMultiplyBlock();
+            case SYMBOL_DIVISION:
+                return settings.getDrawables().getDivisionBlock();
             case SYMBOL_PLUS:
                 return settings.getDrawables().getPlusBlock();
             case SYMBOL_MINUS:

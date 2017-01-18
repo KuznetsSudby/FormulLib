@@ -25,10 +25,7 @@ import java.util.HashMap;
  */
 
 public class Formul extends View {
-    /*
-        по всей логике моих формул, можно будет подставлять + * -
-        но нельзя будет подставить /
-    */
+
     private DrawThread drawThread = new DrawThread(this);
     private MovePart part = new MovePart(this);
     private Tree tree = new Tree(this);
@@ -62,6 +59,16 @@ public class Formul extends View {
         part.updateBlockReferences(settings);
         invalidate();
         return this;
+    }
+
+    public Formul setStringsBlocks(Iterable<String> blocks) {
+        ArrayList<Movable> list = new ArrayList<>();
+        int i = 0;
+        for (String str : blocks) {
+            list.add(new Movable(i, str));
+            i++;
+        }
+        return setBlocks(list);
     }
 
     @Override

@@ -14,8 +14,7 @@ import java.util.HashMap;
  */
 
 public class Default {
-    //todo написать парсеры;
-    //todo cкрывать знаки умножить
+
     public static ArrayList<Movable> getDefBlock() {
         ArrayList<Movable> blocks = new ArrayList<>();
         blocks.add(new Movable(0, "H1"));
@@ -25,7 +24,7 @@ public class Default {
         blocks.add(new Movable(4, "D"));
         blocks.add(new Movable(5, "*"));
         blocks.add(new Movable(6, "F"));
-        blocks.add(new Movable(7, "J"));
+        blocks.add(new Movable(7, "/"));
         blocks.add(new Movable(8, "G"));
         blocks.add(new Movable(9, "U"));
         return blocks;

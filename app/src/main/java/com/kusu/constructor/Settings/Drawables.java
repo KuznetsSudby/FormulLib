@@ -26,6 +26,7 @@ public class Drawables {
 	private static @DrawableRes int defIDPlusBlock = R.drawable.ic_plus;
 	private static @DrawableRes int defIDMinusBlock = R.drawable.ic_minus;
 	private static @DrawableRes int defIDMultiplyBlock = R.drawable.ic_mult;
+	private static @DrawableRes int defIDDivisionBlock = R.drawable.ic_division;
 	private static @DrawableRes int defIDEquallyBlock = R.drawable.ic_equally;
 	private static @DrawableRes int defIDBktLeftBlock = R.drawable.ic_bkt_left;
 	private static @DrawableRes int defIDBktRightBlock = R.drawable.ic_bkt_right;
@@ -45,6 +46,7 @@ public class Drawables {
 	private Drawable bktLeftBlock;
 	private Drawable bktRightBlock;
 	private Drawable multiplyBlock;
+	private Drawable divisionBlock;
 
 	public Drawables(TypedArray attrs) {
 		if (attrs == null)
@@ -87,6 +89,8 @@ public class Drawables {
 			bktRightBlock = context.getResources().getDrawable(defIDBktRightBlock);
 		if (multiplyBlock == null)
 			multiplyBlock = context.getResources().getDrawable(defIDMultiplyBlock);
+		if (divisionBlock == null)
+			divisionBlock = context.getResources().getDrawable(defIDDivisionBlock);
 
 		return this;
 	}
@@ -201,5 +205,13 @@ public class Drawables {
 
 	public void setCheckGood(Drawable checkGood) {
 		this.checkGood = checkGood;
+	}
+
+	public Drawable getDivisionBlock() {
+		return divisionBlock;
+	}
+
+	public void setDivisionBlock(Drawable divisionBlock) {
+		this.divisionBlock = divisionBlock;
 	}
 }

@@ -17,6 +17,8 @@ public class Utils {
 				return PaintableBlock.SYMBOL_MULTIPLY;
 			case "=":
 				return PaintableBlock.SYMBOL_EQUALLY;
+			case "/":
+				return PaintableBlock.SYMBOL_DIVISION;
 			case "(":
 				return PaintableBlock.SYMBOL_BKT_LEFT;
 			case ")":
