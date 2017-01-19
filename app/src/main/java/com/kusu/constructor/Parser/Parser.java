@@ -122,8 +122,8 @@ public class Parser {
         int index = 0;
         int indStart = 0;
         String temp;
+        index = value.indexOf('/', index);
         while (index != -1) {
-            index = value.indexOf('/', index);
             switch (value.charAt(index - 1)) {
                 case ')':
                     indStart = findPrevios(value, index - 1, '(', ')');
@@ -143,6 +143,7 @@ public class Parser {
                     + value.substring(indStart, index)
                     + value.substring(index + 1);
             value = temp;
+            index = value.indexOf('/', index);
         }
         return value;
     }
