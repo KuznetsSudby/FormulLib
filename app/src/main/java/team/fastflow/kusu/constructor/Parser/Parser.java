@@ -1,13 +1,13 @@
-package com.kusu.constructor.Parser;
+package team.fastflow.kusu.constructor.Parser;
 
 import android.content.Context;
 
-import com.kusu.constructor.LeafType.Changeable;
-import com.kusu.constructor.LeafType.Division;
-import com.kusu.constructor.LeafType.Nextable;
-import com.kusu.constructor.LeafType.Power;
-import com.kusu.constructor.Prototype.Leaf;
-import com.kusu.constructor.R;
+import team.fastflow.kusu.constructor.LeafType.Changeable;
+import team.fastflow.kusu.constructor.LeafType.Division;
+import team.fastflow.kusu.constructor.LeafType.Nextable;
+import team.fastflow.kusu.constructor.LeafType.Power;
+import team.fastflow.kusu.constructor.Prototype.Leaf;
+import team.fastflow.kusu.R;
 
 /**
  * Created by KuSu on 18.01.2017.
