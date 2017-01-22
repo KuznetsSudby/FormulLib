@@ -1,14 +1,12 @@
-package com.kusu.constructor.View;
+package team.fastflow.kusu.constructor.Moduls;
 
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
 
-import com.kusu.constructor.Example.Default;
-import com.kusu.constructor.Formul;
-import com.kusu.constructor.Prototype.Leaf;
-import com.kusu.constructor.Utils.Result;
-import com.kusu.constructor.Utils.Utils;
+import team.fastflow.kusu.constructor.Example.Default;
+import team.fastflow.kusu.constructor.Views.Formul;
+import team.fastflow.kusu.constructor.Prototype.Leaf;
+import team.fastflow.kusu.constructor.Utils.Result;
+import team.fastflow.kusu.constructor.Utils.Utils;
 
 /**
  * Created by mikhail.chvarkou on 1/5/2017.

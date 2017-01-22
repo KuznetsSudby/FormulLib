@@ -6,7 +6,7 @@ import android.graphics.Rect;
 
 import team.fastflow.kusu.constructor.Prototype.Leaf;
 import team.fastflow.kusu.constructor.Prototype.PaintableBlock;
-import team.fastflow.kusu.constructor.View.Settings;
+import team.fastflow.kusu.constructor.Moduls.Settings;
 
 public class Division extends Leaf {
 
