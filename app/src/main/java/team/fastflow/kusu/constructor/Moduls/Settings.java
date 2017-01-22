@@ -1,9 +1,9 @@
-package team.fastflow.kusu.constructor.View;
+package team.fastflow.kusu.constructor.Moduls;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 
-import team.fastflow.kusu.constructor.Formul;
+import team.fastflow.kusu.constructor.Views.Formul;
 import team.fastflow.kusu.constructor.Settings.Colors;
 import team.fastflow.kusu.constructor.Settings.Drawables;
 import team.fastflow.kusu.constructor.Settings.Scale;

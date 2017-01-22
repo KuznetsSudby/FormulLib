@@ -1,11 +1,11 @@
-package team.fastflow.kusu.constructor.View;
+package team.fastflow.kusu.constructor.Moduls;
 
 import android.graphics.Canvas;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 
-import com.kusu.constructor.Formul;
-import com.kusu.constructor.LeafType.Movable;
+import team.fastflow.kusu.constructor.Views.Formul;
+import team.fastflow.kusu.constructor.LeafType.Movable;
 
 /**
  * Created by KuSu on 31.12.2016.

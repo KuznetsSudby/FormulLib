@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import team.fastflow.kusu.R;
-import team.fastflow.kusu.constructor.Formul;
+import team.fastflow.kusu.constructor.Views.Formul;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 

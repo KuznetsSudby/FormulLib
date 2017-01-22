@@ -5,7 +5,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 
-import team.fastflow.kusu.constructor.View.Settings;
+import team.fastflow.kusu.constructor.Moduls.Settings;
 
 /**
  * Created by KuSu on 09.11.2016.

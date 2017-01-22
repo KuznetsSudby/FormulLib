@@ -14,7 +14,7 @@ import team.fastflow.kusu.constructor.LeafType.Nextable;
 import team.fastflow.kusu.constructor.LeafType.Power;
 import team.fastflow.kusu.constructor.Utils.Result;
 import team.fastflow.kusu.constructor.Utils.Utils;
-import team.fastflow.kusu.constructor.View.Settings;
+import team.fastflow.kusu.constructor.Moduls.Settings;
 
 /**
  * Created by KuSu on 31.12.2016.

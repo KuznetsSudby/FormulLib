@@ -1,10 +1,10 @@
-package com.kusu.constructor.View;
+package team.fastflow.kusu.constructor.Moduls;
 
-import com.kusu.constructor.Formul;
-import com.kusu.constructor.LeafType.Movable;
-import com.kusu.constructor.Listeners.EndMoveBlockListener;
-import com.kusu.constructor.Listeners.OccupancyListener;
-import com.kusu.constructor.Utils.Result;
+import team.fastflow.kusu.constructor.Views.Formul;
+import team.fastflow.kusu.constructor.LeafType.Movable;
+import team.fastflow.kusu.constructor.Listeners.EndMoveBlockListener;
+import team.fastflow.kusu.constructor.Listeners.OccupancyListener;
+import team.fastflow.kusu.constructor.Utils.Result;
 
 /**
  * Created by KuSu on 07.01.2017.

@@ -1,4 +1,4 @@
-package com.kusu.constructor;
+package team.fastflow.kusu.constructor.Views;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -7,18 +7,18 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.kusu.constructor.LeafType.Movable;
-import com.kusu.constructor.Utils.Result;
-import com.kusu.constructor.View.Listeners;
-import com.kusu.constructor.View.MovePart;
-import com.kusu.constructor.Prototype.Leaf;
-import com.kusu.constructor.View.TouchWorker;
-import com.kusu.constructor.View.DrawThread;
-import com.kusu.constructor.View.Settings;
-import com.kusu.constructor.View.Tree;
-
 import java.util.ArrayList;
-import java.util.HashMap;
+
+import team.fastflow.kusu.R;
+import team.fastflow.kusu.constructor.LeafType.Movable;
+import team.fastflow.kusu.constructor.Prototype.Leaf;
+import team.fastflow.kusu.constructor.Utils.Result;
+import team.fastflow.kusu.constructor.Moduls.DrawThread;
+import team.fastflow.kusu.constructor.Moduls.Listeners;
+import team.fastflow.kusu.constructor.Moduls.MovePart;
+import team.fastflow.kusu.constructor.Moduls.Settings;
+import team.fastflow.kusu.constructor.Moduls.TouchWorker;
+import team.fastflow.kusu.constructor.Moduls.Tree;
 
 /**
  * Created by KuSu on 08.11.2016.
