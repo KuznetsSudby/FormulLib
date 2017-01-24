@@ -1,0 +1,7 @@
+<resources>
+    <string name="exception" formatted="false">\"%s\" should be from \"%s\" to \"%s\", but it is \"%s\"</string>
+    <string name="exception_min_max" formatted="false">\"%s\" should be more than \"%s\", but \"%s\" less than \"%s\"</string>
+    <string name="exception_incorrect_value" formatted="false">Incorrect value \"%s\"</string>
+    <string name="exception_brackets">Invalide brackets</string>
+    <string name="app_name">FormulLib</string>
+</resources>

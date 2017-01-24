@@ -1,0 +1,46 @@
+<resources>
+    <declare-styleable name="fs">
+        <!--scale-->
+        <attr name="min_scale" format="float" />
+        <attr name="max_scale" format="float" />
+        <attr name="autoscale" format="boolean" />
+        <attr name="autoscale_width" format="boolean" />
+        <attr name="movable_extrascale" format="float" />
+
+        <!--size values-->
+        <attr name="percent" format="float" />
+        <attr name="height" format="dimension" />
+        <attr name="percent_height" format="boolean" />
+        <attr name="padding_factor" format="float" />
+        <attr name="text_percent" format="float" />
+        <attr name="block_size" format="dimension" />
+        <attr name="block_factor" format="float" />
+        <attr name="division_factor" format="float" />
+        <attr name="division_padding_factor" format="float" />
+        <attr name="movable_divider_factor" format="float" />
+        <attr name="group_movables" format="boolean"/>
+        <attr name="check_size" format="float"/>
+
+        <!--colors-->
+        <attr name="background_color" format="color" />
+        <attr name="text_color" format="color" />
+        <attr name="division_color" format="color" />
+
+        <!--colors-drawable-->
+        <attr name="bad_block" format="reference"/>
+        <attr name="default_block" format="reference"/>
+        <attr name="good_block" format="reference"/>
+        <attr name="changeable_block" format="reference"/>
+        <attr name="movable_block" format="reference"/>
+        <attr name="plus_block" format="reference"/>
+        <attr name="minus_block" format="reference"/>
+        <attr name="equally_block" format="reference"/>
+        <attr name="bkt_left_block" format="reference"/>
+        <attr name="bkt_right_block" format="reference"/>
+        <attr name="multiply_block" format="reference"/>
+        <attr name="division_block" format="reference"/>
+        <attr name="unselected_block" format="reference"/>
+        <attr name="check_bad" format="reference"/>
+        <attr name="check_good" format="reference"/>
+    </declare-styleable>
+</resources>

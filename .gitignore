@@ -13,5 +13,5 @@ gradlew
 gradle/
 gradle.properties
 app/proguard-rules.pro
-app/src/test/java/com/kusu/constructor/ExampleUnitTest.java
+app/src/test/java/com/kusu/team.fastflow.kusu.constructor/ExampleUnitTest.java
 app/build/
