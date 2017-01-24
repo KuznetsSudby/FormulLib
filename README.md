@@ -9,9 +9,13 @@
 
 ## Начало
 
-To Do
+в **build.gradle**
 
----
+```java
+dependencies {
+    compile 'team.fastflow.kusu:constructor-formul:1.0.2-BETA'
+}
+```
 
 ## Атрибуты у View
 
