@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:fs="http://schemas.android.com/apk/res-autoScale"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -68,7 +67,7 @@
             android:background="@color/changeableBlock"/>
     </LinearLayout>
 
-    <com.kusu.constructor.Formul
+    <team.fastflow.kusu.constructor.Formul
         android:id="@+id/formul"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

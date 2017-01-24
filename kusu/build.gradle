@@ -1,10 +1,11 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
+apply from: '../maven_push.gradle'
 
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.1"
+
     defaultConfig {
-        applicationId "team.fastflow.kusu"
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
@@ -26,5 +27,7 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.1.0'
     testCompile 'junit:junit:4.12'
-    compile project(path: ':kusu')
 }
+
+
+
