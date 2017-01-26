@@ -2,10 +2,12 @@
 
 [![Maven Central](https://img.shields.io/maven-central/v/team.fastflow.kusu/constructor-formul.svg)](https://oss.sonatype.org/content/repositories/releases/team/fastflow/kusu/constructor-formul/)
 
-<a href="https://play.google.com/store/apps/details?id=">
+<a href="https://play.google.com/store/apps/details?id=team.fastflow.kusu.constructor.formul">
   <img alt="Get it on Google Play"
        src="https://developer.android.com/images/brand/en_generic_rgb_wo_60.png" />
 </a>
+
+![example](./example1.jpg) ![example](./example2.jpg) ![example](./example3.jpg)
 
 ## Начало
 
