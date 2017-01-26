@@ -13,9 +13,33 @@
 
 ```java
 dependencies {
-    compile 'team.fastflow.kusu:constructor-formul:1.0.2-BETA'
+    compile 'team.fastflow.kusu:constructor-formul:1.0.5-BETA'
 }
 ```
+
+в **xml**
+
+```java
+	<team.fastflow.kusu.constructor.Views.Formul
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"/>
+```
+
+===
+
+проверить формулу
+
+```java
+ public Result getResult(boolean backlight, boolean movable, boolean clear, boolean check) 
+ ```
+ 
+ Возвращает текущее состояния формулы - сколько правильных/неправильных/незаполненных. Переменные отвечают:
+ 1. за подсветку правильных/неправильных ответов
+ 2. за возможность двигать блоки после результата
+ 3. очистить ли поле после результата
+ 4. показать ли большой знак результата
+
+---
 
 ## Атрибуты у View
 
@@ -164,12 +188,6 @@ fs:check_good format="reference"
 1. следующий блок, который образует значение числителя.
 2. следующий блок, который образует значение знаменателя.
 3. следующий блок, который образует значения после выхода из части с делением.
-
----
-
-## Основные методы
-
-To Do
 
 ---
 
