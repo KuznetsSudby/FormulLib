@@ -2,6 +2,7 @@ package team.fastflow.kusu.constructor.Moduls;
 
 import android.graphics.Canvas;
 
+import team.fastflow.kusu.constructor.LeafType.Changeable;
 import team.fastflow.kusu.constructor.Prototype.Leaf;
 import team.fastflow.kusu.constructor.Utils.Result;
 import team.fastflow.kusu.constructor.Utils.Utils;
@@ -13,7 +14,7 @@ import team.fastflow.kusu.constructor.Views.Formul;
 
 public class Tree {
     private Formul formul;
-    private Leaf root = Default.getDefRoot();
+    private Leaf root = new Changeable("A");
 
     public Tree(Formul formul) {
         this.formul = formul;

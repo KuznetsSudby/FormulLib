@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOff="Cлово"
+        android:textOn="Формула"
+        android:id="@+id/toggle"
+        android:checked="false"/>
+
     <LinearLayout
         android:orientation="horizontal"
         android:gravity="center"
@@ -67,7 +75,7 @@
             android:background="@color/changeableBlock"/>
     </LinearLayout>
 
-    <team.fastflow.kusu.constructor.Formul
+    <team.fastflow.kusu.constructor.Views.Formul
         android:id="@+id/formul"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

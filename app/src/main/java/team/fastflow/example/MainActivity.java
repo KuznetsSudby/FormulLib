@@ -3,13 +3,15 @@ package team.fastflow.example;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.ToggleButton;
 
 
 import team.fastflow.example.R;
 import team.fastflow.kusu.constructor.Moduls.Default;
 import team.fastflow.kusu.constructor.Views.Formul;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
     Formul formul;
 
@@ -18,13 +20,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         formul = (Formul) findViewById(R.id.formul);
-        try {
-            formul
-                    .setBlocks(Default.getDefBlock())
-                    .setRoot(Default.getDefTree(this));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
+        ((ToggleButton) findViewById(R.id.toggle)).setOnCheckedChangeListener(this);
+        makeFormul(false);
 
         findViewById(R.id.clear).setOnClickListener(this);
         findViewById(R.id.getResultAndBacklight).setOnClickListener(this);
@@ -33,9 +31,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.yesMove).setOnClickListener(this);
     }
 
+    private void makeFormul(boolean isFormul) {
+        try {
+            if (isFormul) {
+                formul
+                        .setBlocks(Default.getDefBlock())
+                        .setRoot(Default.getDefTree(this));
+            } else {
+                formul
+                        .setBlocks(Default.getDefWordBlock())
+                        .setRoot(Default.getDefWordTree(this));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.clear:
                 formul.clearBlocks();
                 break;
@@ -53,6 +67,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 formul.setMove(true);
                 break;
         }
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        makeFormul(b);
     }
 }
 
