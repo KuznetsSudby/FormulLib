@@ -7,7 +7,9 @@
        src="https://developer.android.com/images/brand/en_generic_rgb_wo_60.png" />
 </a>
 
-![example](./example1.png) ![example](./example2.png) ![example](./example3.png)
+| Слово | Формула | Формула |
+| --- | --- | --- |
+| ![example](./example1.png) | ![example](./example2.png) | ![example](./example3.png) |
 
 ## Начало
 
