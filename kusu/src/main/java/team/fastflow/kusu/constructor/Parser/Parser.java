@@ -24,12 +24,13 @@ public class Parser {
     private boolean seeSquareBrackets = false;
 
     public static final String def =
-            "&A* ( ( &B^ ( 2*((&G) / (U)))&+((&L)/(&P)))/(&F^H)) -&K ^E+@log (23/32)@";
+            "&A* ( ( &B^(2)@&+@((&C)/(&D)))/(&E^F))";
 
-    public static final String defRes =
-            "&A*(/(&B^(2*(/(&G)(U)))&+/(&L)(&P))(&F^H))-&K^E+@log (23/32)@";
-    //    "&A*(/(&B^(2*(/(&G)(U)))&+/(&L)(&P))(&F^H))-&K^E+@&log (23/32)@";
+    public static final String defWord =
+            "(м)(&A)(ш)(и)(&H)(а)";
 
+    public static String defMin =
+            "A+B";
 
     public Parser() {
     }
