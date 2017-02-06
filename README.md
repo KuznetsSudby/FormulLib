@@ -17,7 +17,7 @@
 
 ```java
 dependencies {
-    compile 'team.fastflow.kusu:constructor-formul:1.0.6-BETA'
+    compile 'team.fastflow.kusu:constructor-formul:1.0.7-BETA'
 }
 ```
 
