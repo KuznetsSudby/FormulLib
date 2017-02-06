@@ -15,6 +15,7 @@ import team.fastflow.kusu.constructor.Views.Formul;
 public class Tree {
     private Formul formul;
     private Leaf root = new Changeable("A");
+    private boolean invalid = true;
 
     public Tree(Formul formul) {
         this.formul = formul;
@@ -26,7 +27,7 @@ public class Tree {
         int height = formul.getSettings().getFormulHeight(canvas.getHeight());
 
         formul.getSettings().changeWidth(formul);
-        if (formul.getSettings().getScale().isAutoScale()) {
+        if (formul.getSettings().getScale().isAutoScale() && invalid) {
             float temp = formul.getSettings().getScale().getScale();
             formul.getSettings().getScale().setScale(Utils.roundMore(formul.getSettings().getScale().getScale()));
             formul.getSettings().changeScale(
@@ -41,6 +42,7 @@ public class Tree {
                         height, root.getWidthToEnd(),
                         root.getHeightToEnd());
             }
+            invalid = false;
         }
 
         int[] s = root.getTopBottom(new int[]{
@@ -51,6 +53,10 @@ public class Tree {
 
         if (root != null)
             root.draw(canvas, formul.getSettings().getPadding() + dW / 2, height / 2 + dH);
+    }
+
+    public void invalidate(){
+        invalid = true;
     }
 
     public Leaf getRoot() {

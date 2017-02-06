@@ -91,10 +91,17 @@ public class Formul extends View {
     }
 
     public Formul setRoot(Leaf root) {
+        tree.invalidate();
         tree.setRoot(root);
         tree.updateRootReferences();
         invalidate();
         return this;
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        tree.invalidate();
+        super.onSizeChanged(w, h, oldw, oldh);
     }
 
     public MovePart getMovePart() {
@@ -106,6 +113,7 @@ public class Formul extends View {
     }
 
     public Settings getSettings() {
+        tree.invalidate();
         return settings;
     }
 
@@ -138,6 +146,7 @@ public class Formul extends View {
     }
 
     public void setMove(boolean movable) {
+        tree.invalidate();
         getWorker().setMove(movable);
         invalidate();
     }
@@ -155,5 +164,11 @@ public class Formul extends View {
     public void setCheck(int check) {
         drawThread.setCheck(check);
         invalidate();
+    }
+
+    @Override
+    public void invalidate() {
+        tree.invalidate();
+        super.invalidate();
     }
 }
