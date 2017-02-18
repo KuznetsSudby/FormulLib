@@ -7,9 +7,8 @@ import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
 
-import team.fastflow.example.R;
-import team.fastflow.kusu.constructor.Moduls.Default;
-import team.fastflow.kusu.constructor.Views.Formul;
+import kusu.constructor.formul.Moduls.Default;
+import kusu.constructor.formul.Views.Formul;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
