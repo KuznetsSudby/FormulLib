@@ -75,7 +75,7 @@
             android:background="@color/changeableBlock"/>
     </LinearLayout>
 
-    <team.fastflow.kusu.constructor.Views.Formul
+    <kusu.constructor.formul.Views.Formul
         android:id="@+id/formul"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
