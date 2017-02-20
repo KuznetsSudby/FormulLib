@@ -17,14 +17,14 @@
 
 ```java
 dependencies {
-    compile 'team.fastflow.kusu:constructor-formul:1.0.7-BETA'
+    compile 'team.fastflow.kusu:constructor-formul:1.1.0-BETA'
 }
 ```
 
 в **xml**
 
 ```java
-	<team.fastflow.kusu.constructor.Views.Formul
+	<kusu.constructor.formul.Views.Formul
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"/>
 ```
